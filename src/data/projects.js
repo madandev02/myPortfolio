@@ -2,7 +2,7 @@
 const projects = [
   {
     title: "FitSphere Admin Dashboard",
-    description: "A full-featured banking system built with Java Spring Boot and MySQL.",
+    description: "A full-featured admin dashboard for FitSphere, built with React and Tailwind CSS.",
     link: "https://github.com/madandev02/fitSphere-admindashboard",
     demo: "https://bankingapp-demo.com",
     image: "/images/banking-app.png", // screenshot placeholder
