@@ -1,7 +1,13 @@
 import { useState, useRef, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaUser, FaEnvelope, FaPaperPlane, FaCheckCircle, FaExclamationCircle } from "react-icons/fa";
+import {
+  FaUser,
+  FaEnvelope,
+  FaPaperPlane,
+  FaCheckCircle,
+  FaExclamationCircle,
+} from "react-icons/fa";
 
 const Contact = () => {
   const formRef = useRef();
@@ -14,6 +20,13 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // 🚨 Honeypot: si el bot rellena este campo oculto, bloqueamos el envío
+    if (formRef.current.honeypot.value) {
+      setStatus("error");
+      return;
+    }
+
     setLoading(true);
 
     emailjs
@@ -37,7 +50,10 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="w-full min-h-screen py-20 px-4 scroll-mt-36">
+    <section
+      id="contact"
+      className="w-full min-h-screen py-20 px-4 scroll-mt-36"
+    >
       <div className="max-w-lg mx-auto text-center relative z-10">
         {/* Section title */}
         <motion.h2
@@ -56,7 +72,20 @@ const Contact = () => {
           transition={{ duration: 0.8 }}
           className="bg-white/80 backdrop-blur-lg shadow-xl rounded-2xl p-8 border border-gray-200"
         >
-          <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-6">
+          <form
+            ref={formRef}
+            onSubmit={handleSubmit}
+            className="flex flex-col gap-6"
+          >
+            {/* 🚨 Honeypot hidden field (anti-bots) */}
+            <input
+              type="text"
+              name="honeypot"
+              style={{ display: "none" }}
+              tabIndex="-1"
+              autoComplete="off"
+            />
+
             {/* Name field */}
             <div className="relative">
               <FaUser className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
@@ -87,6 +116,7 @@ const Contact = () => {
               placeholder="Your message"
               required
               rows={5}
+              maxLength={500} // 🔒 límite de caracteres
               className="border border-gray-300 rounded-xl px-4 py-3 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
             ></textarea>
 
@@ -125,12 +155,17 @@ const Contact = () => {
                 {status === "success" ? (
                   <>
                     <FaCheckCircle className="text-green-600 text-lg" />
-                    <span>Message sent successfully! I'll get back to you soon.</span>
+                    <span>
+                      Message sent successfully! I'll get back to you soon.
+                    </span>
                   </>
                 ) : (
                   <>
                     <FaExclamationCircle className="text-red-600 text-lg" />
-                    <span>Oops! Something went wrong. Please try again.</span>
+                    <span>
+                      Oops! Something went wrong or spam detected. Please try
+                      again.
+                    </span>
                   </>
                 )}
               </motion.div>
