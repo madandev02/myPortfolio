@@ -1,4 +1,5 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaMapMarkerAlt } from "react-icons/fa";
 import profile from "../assets/profile.jpg";
 import { motion } from "framer-motion";
 
@@ -36,7 +37,8 @@ const About = () => {
           {/* Text */}
           <div className="text-gray-700 text-left max-w-lg">
             <p className="mb-4 leading-relaxed">
-              I'm a passionate <span className="font-semibold text-gray-900">Frontend Developer</span> focused on
+              I'm a passionate{" "}
+              <span className="font-semibold text-gray-900">Frontend Developer</span> focused on
               building modern, responsive, and user-friendly web applications using{" "}
               <span className="text-blue-600 font-semibold">React</span> and{" "}
               <span className="text-cyan-500 font-semibold">Tailwind CSS</span>.
@@ -46,15 +48,29 @@ const About = () => {
               <span className="font-semibold">Node.js</span>,{" "}
               <span className="font-semibold">Express</span>,{" "}
               <span className="font-semibold">Java</span>, and databases such as{" "}
-              <span className="font-semibold">MongoDB</span>.  
-              My goal is to transition into a fullstack role and build scalable, high-quality applications.
+              <span className="font-semibold">MongoDB</span>. My goal is to transition into a fullstack
+              role and build scalable, high-quality applications.
             </p>
             <p className="leading-relaxed">
-              I strive to create clean, efficient, and visually appealing solutions that provide real value to users.
+              I strive to create clean, efficient, and visually appealing solutions that provide
+              real value to users.
             </p>
 
+            {/* Location Section */}
+            <motion.div
+              className="mt-6 flex items-center gap-3 bg-blue-50 border border-blue-200 rounded-xl px-4 py-3 shadow-sm"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+            >
+              <FaMapMarkerAlt className="text-blue-600 text-lg" />
+              <span className="text-gray-800 font-medium">
+                Based in <span className="text-blue-600 font-semibold">Santiago, Chile</span> 🌍
+              </span>
+            </motion.div>
+
             {/* Social Links */}
-            <div className="flex gap-6 mt-6">
+            <div className="flex gap-6 mt-8">
               <a
                 href="https://github.com/madandev02"
                 target="_blank"
