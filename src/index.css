@@ -1,13 +1,24 @@
 @import "tailwindcss";
 
+/* Custom ScrollBar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d1117; 
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #94a3b8;
+  background: linear-gradient(180deg, #00c9ff, #92fe9d);
   border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 201, 255, 0.4);
 }
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #00b2e3, #7bffb3);
+}
+
 
 html {
   scroll-behavior: smooth;

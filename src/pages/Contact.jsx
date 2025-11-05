@@ -11,7 +11,7 @@ import {
 
 const Contact = () => {
   const formRef = useRef();
-  const [status, setStatus] = useState(null); // "success" | "error" | null
+  const [status, setStatus] = useState(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // 🚨 Honeypot: si el bot rellena este campo oculto, bloqueamos el envío
+    // Anti-bot validation
     if (formRef.current.honeypot.value) {
       setStatus("error");
       return;
@@ -31,10 +31,10 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        "service_kdgi16u", // SERVICE ID
-        "template_bdvrecl", // TEMPLATE ID
+        "service_kdgi16u",
+        "template_bdvrecl",
         formRef.current,
-        "LZLck44kERPGZdzDi" // PUBLIC KEY
+        "LZLck44kERPGZdzDi"
       )
       .then(
         () => {
@@ -52,32 +52,36 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="w-full min-h-screen py-20 px-4 scroll-mt-36"
+      className="relative w-full py-24 px-6 text-[#e6edf3] overflow-hidden"
     >
-      <div className="max-w-lg mx-auto text-center relative z-10">
-        {/* Section title */}
+      {/* 🌌 Fondo suave que se integra con el resto del sitio */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0d1117]/60 to-transparent"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,201,255,0.07)_0%,transparent_70%)] blur-3xl"></div>
+
+      <div className="max-w-2xl mx-auto text-center relative z-10">
+        {/* Título */}
         <motion.h2
-          className="text-4xl font-bold text-gray-900 mb-8"
+          className="text-4xl md:text-5xl font-bold mb-12 bg-gradient-to-r from-[#00c9ff] to-[#92fe9d] bg-clip-text text-transparent drop-shadow-[0_0_12px_rgba(0,201,255,0.4)]"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          Contact Me
+          Let’s Connect
         </motion.h2>
 
-        {/* Contact form card */}
+        {/* 🧊 Contenedor del formulario */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="bg-white/80 backdrop-blur-lg shadow-xl rounded-2xl p-8 border border-gray-200"
+          className="bg-[#161b22]/40 backdrop-blur-sm border border-[#1f2a36]/70 rounded-3xl p-10 shadow-md hover:shadow-[#00c9ff]/30 transition-all duration-300"
         >
-          <form
-            ref={formRef}
-            onSubmit={handleSubmit}
-            className="flex flex-col gap-6"
-          >
-            {/* 🚨 Honeypot hidden field (anti-bots) */}
+          <p className="text-[#9ba6b4] mb-8">
+            Have a question, project, or opportunity? I’d love to hear from you! 👋
+          </p>
+
+          <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-6">
+            {/* Honeypot oculto */}
             <input
               type="text"
               name="honeypot"
@@ -86,46 +90,48 @@ const Contact = () => {
               autoComplete="off"
             />
 
-            {/* Name field */}
+            {/* Nombre */}
             <div className="relative">
-              <FaUser className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
+              <FaUser className="absolute left-5 top-1/2 transform -translate-y-1/2 text-[#00c9ff] text-lg" />
               <input
                 type="text"
                 name="name"
                 placeholder="Your name"
                 required
-                className="w-full border border-gray-300 rounded-full pl-12 pr-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                className="w-full border border-[#30363d]/80 rounded-full pl-12 pr-4 py-3 bg-[#0d1117]/70 text-[#e6edf3] placeholder-[#9ba6b4] focus:outline-none focus:ring-2 focus:ring-[#00c9ff]/60 transition"
               />
             </div>
 
-            {/* Email field */}
+            {/* Email */}
             <div className="relative">
-              <FaEnvelope className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
+              <FaEnvelope className="absolute left-5 top-1/2 transform -translate-y-1/2 text-[#00c9ff] text-lg" />
               <input
                 type="email"
                 name="email"
                 placeholder="Your email"
                 required
-                className="w-full border border-gray-300 rounded-full pl-12 pr-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                className="w-full border border-[#30363d]/80 rounded-full pl-12 pr-4 py-3 bg-[#0d1117]/70 text-[#e6edf3] placeholder-[#9ba6b4] focus:outline-none focus:ring-2 focus:ring-[#00c9ff]/60 transition"
               />
             </div>
 
-            {/* Message field */}
+            {/* Mensaje */}
             <textarea
               name="message"
-              placeholder="Your message"
+              placeholder="Write your message..."
               required
               rows={5}
-              maxLength={500} // 🔒 límite de caracteres
-              className="border border-gray-300 rounded-xl px-4 py-3 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+              maxLength={600}
+              className="border border-[#30363d]/80 rounded-2xl px-4 py-3 bg-[#0d1117]/70 text-[#e6edf3] placeholder-[#9ba6b4] resize-none focus:outline-none focus:ring-2 focus:ring-[#00c9ff]/60 transition"
             ></textarea>
 
-            {/* Submit button */}
-            <button
+            {/* Botón enviar */}
+            <motion.button
               type="submit"
               disabled={loading}
-              className={`flex items-center justify-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-full font-medium hover:bg-blue-700 transition shadow-md ${
-                loading ? "opacity-50 cursor-not-allowed" : ""
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              className={`flex items-center justify-center gap-2 text-lg font-semibold bg-gradient-to-r from-[#00c9ff] to-[#92fe9d] text-[#0a0f16] px-8 py-3 rounded-full shadow-md hover:shadow-[#00c9ff]/40 transition-all ${
+                loading ? "opacity-60 cursor-not-allowed" : ""
               }`}
             >
               {loading ? (
@@ -136,36 +142,31 @@ const Contact = () => {
                   Send Message
                 </>
               )}
-            </button>
+            </motion.button>
           </form>
 
-          {/* Status messages */}
+          {/* Feedback de estado */}
           <AnimatePresence>
             {status && (
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                className={`mt-6 p-4 rounded-lg flex items-center gap-3 text-sm ${
+                className={`mt-8 p-4 rounded-xl flex items-center justify-center gap-3 text-sm font-medium ${
                   status === "success"
-                    ? "bg-green-100 text-green-800 border border-green-300"
-                    : "bg-red-100 text-red-800 border border-red-300"
+                    ? "bg-[#00c9ff]/10 text-[#92fe9d] border border-[#00c9ff]/30"
+                    : "bg-[#ff4d4d]/10 text-[#ff6b6b] border border-[#ff6b6b]/30"
                 }`}
               >
                 {status === "success" ? (
                   <>
-                    <FaCheckCircle className="text-green-600 text-lg" />
-                    <span>
-                      Message sent successfully! I'll get back to you soon.
-                    </span>
+                    <FaCheckCircle className="text-[#92fe9d] text-lg" />
+                    <span>Message sent successfully! 🚀</span>
                   </>
                 ) : (
                   <>
-                    <FaExclamationCircle className="text-red-600 text-lg" />
-                    <span>
-                      Oops! Something went wrong or spam detected. Please try
-                      again.
-                    </span>
+                    <FaExclamationCircle className="text-[#ff6b6b] text-lg" />
+                    <span>Something went wrong. Please try again later.</span>
                   </>
                 )}
               </motion.div>
