@@ -40,53 +40,51 @@ const About = () => {
           <div className="text-left max-w-xl">
             {/* Intro paragraph */}
             <p className="mb-4 leading-relaxed text-[#9ba6b4]">
-              I'm a{" "}
+              I'm a passionate{" "}
               <span className="font-semibold text-[#e6edf3]">
-                Fullstack Developer
+                Full-Stack Developer
               </span>{" "}
-              with{" "}
-              <span className="font-semibold text-[#00c9ff]">2+ years of experience</span>{" "}
-              building efficient, responsive, and high-quality web applications.
-              My focus is to create seamless user experiences through modern
-              technologies and clean architecture.
+              currently mastering a dual-stack approach with{" "}
+              <span className="font-semibold text-[#00c9ff]">JavaScript/TypeScript</span>{" "}
+              and <span className="font-semibold text-[#E76F00]">Java</span>. 
+              I'm focused on building scalable, high-performance web applications 
+              using modern technologies and clean architecture principles.
             </p>
 
-            {/* AI and Data Engineering focus */}
+            {/* Learning journey */}
             <p className="mb-4 leading-relaxed text-[#9ba6b4]">
-              Beyond web development, I'm deeply interested in{" "}
+              My current learning path includes advanced{" "}
               <span className="font-semibold text-[#00c9ff]">
-                Artificial Intelligence
+                React & Next.js
               </span>
-              ,{" "}
+              , enterprise-level{" "}
               <span className="font-semibold text-[#00c9ff]">
-                Data Engineering
+                Spring Boot
               </span>
-              , and{" "}
+              , and modern{" "}
               <span className="font-semibold text-[#00c9ff]">
-                Machine Learning
+                DevOps practices
               </span>
-              . I enjoy exploring how data-driven systems and automation can
-              enhance products and improve decision-making.
+              . I believe in continuous learning and staying updated with industry trends.
             </p>
 
             {/* Current stack */}
             <p className="mb-4 leading-relaxed text-[#9ba6b4]">
-              I work mainly with{" "}
+              I specialize in the{" "}
               <span className="font-semibold text-[#e6edf3]">
-                React, Node.js, and MongoDB
+                MERN stack (MongoDB, Express, React, Node.js)
               </span>
-              , combining them with{" "}
+              {" "}while expanding into{" "}
               <span className="font-semibold text-[#00c9ff]">
-                Python, Pandas, and TensorFlow
-              </span>{" "}
-              for intelligent solutions that merge web and AI.
+                Java Spring Boot for backend systems
+              </span>
+              . I'm also exploring cloud technologies and containerization with Docker and Kubernetes.
             </p>
 
-            {/* Personal statement */}
+            {/* Career goals */}
             <p className="leading-relaxed text-[#9ba6b4]">
-              My mission is to merge creativity with technology — delivering
-              impactful, scalable solutions while continuously learning and
-              pushing boundaries.
+              My goal is to become a versatile developer capable of tackling complex challenges 
+              across different tech stacks, contributing to both startup innovation and enterprise solutions.
             </p>
 
             {/* --- Location Info --- */}

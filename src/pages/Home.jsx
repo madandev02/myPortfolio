@@ -5,8 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 const availabilityMessages = [
   "👨‍💻 Open to Full-time Opportunities",
   "💻 Available for Freelance Work",
-  "🚀 Building Intelligent Fullstack Solutions",
-  "🧠 Exploring AI & Data Engineering Projects",
+  "🚀 Building Modern Full-Stack Solutions",
+  "☕ Mastering Java & Spring Boot",
   "🌱 Always Learning & Growing as a Developer",
 ];
 
@@ -85,11 +85,11 @@ const Home = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.4, duration: 0.8 }}
       >
-        Fullstack Developer with 2+ years of experience creating modern, efficient, and scalable web applications. 
-        Currently focused on integrating Artificial Intelligence and Data Engineering to deliver smarter solutions.
+        Full-Stack Developer specializing in modern JavaScript and Java ecosystems. 
+        Passionate about building scalable applications with clean architecture and best practices.
       </motion.h2>
 
-      {/* --- Developer "Code Block" (ficticio, estilo identidad) --- */}
+      {/* --- Developer "Code Block" (Updated Stack) --- */}
       <motion.div
         className="border border-[#21262d]/60 backdrop-blur-sm bg-[#161b22]/40 rounded-2xl p-6 text-left font-mono text-sm text-[#9ba6b4] w-full max-w-lg mb-10 shadow-[0_0_12px_#00c9ff30] hover:shadow-[0_0_16px_#00c9ff50] transition-all duration-300"
         initial={{ opacity: 0, y: 20 }}
@@ -104,43 +104,51 @@ const Home = () => {
           <p>
             role:{" "}
             <span className="text-[#92fe9d]">
-              'Fullstack Developer & AI Enthusiast'
+              'Full-Stack Developer'
             </span>,
           </p>
           <p>
-            experienceYears: <span className="text-[#92fe9d]">2</span>,
+            specialization: <span className="text-[#92fe9d]">'Dual-Stack (JS + Java)'</span>,
           </p>
           <p>
             location:{" "}
             <span className="text-[#92fe9d]">'Santiago, Chile'</span>,
           </p>
           <p>
-            coreStack: [
+            frontendStack: [
             <span className="text-[#00c9ff]">'React'</span>,{" "}
-            <span className="text-[#00c9ff]">'Node.js'</span>,{" "}
-            <span className="text-[#00c9ff]">'MongoDB'</span>,{" "}
+            <span className="text-[#00c9ff]">'Next.js'</span>,{" "}
+            <span className="text-[#00c9ff]">'TypeScript'</span>,{" "}
             <span className="text-[#00c9ff]">'TailwindCSS'</span>
             ],
           </p>
           <p>
-            aiAndData: [
-            <span className="text-[#00c9ff]">'Python'</span>,{" "}
-            <span className="text-[#00c9ff]">'TensorFlow'</span>,{" "}
-            <span className="text-[#00c9ff]">'Pandas'</span>,{" "}
-            <span className="text-[#00c9ff]">'Data Pipelines'</span>
+            backendStack: [
+            <span className="text-[#00c9ff]">'Node.js'</span>,{" "}
+            <span className="text-[#00c9ff]">'Express'</span>,{" "}
+            <span className="text-[#00c9ff]">'Java'</span>,{" "}
+            <span className="text-[#00c9ff]">'Spring Boot'</span>
             ],
           </p>
           <p>
-            interests: [
-            <span className="text-[#00c9ff]">'Machine Learning'</span>,{" "}
-            <span className="text-[#00c9ff]">'AI Integration'</span>,{" "}
-            <span className="text-[#00c9ff]">'Automation'</span>
+            databases: [
+            <span className="text-[#00c9ff]">'MongoDB'</span>,{" "}
+            <span className="text-[#00c9ff]">'PostgreSQL'</span>,{" "}
+            <span className="text-[#00c9ff]">'Redis'</span>
+            ],
+          </p>
+          <p>
+            devOps: [
+            <span className="text-[#00c9ff]">'Docker'</span>,{" "}
+            <span className="text-[#00c9ff]">'Kubernetes'</span>,{" "}
+            <span className="text-[#00c9ff]">'AWS'</span>,{" "}
+            <span className="text-[#00c9ff]">'CI/CD'</span>
             ],
           </p>
           <p>
             motto:{" "}
             <span className="text-[#92fe9d]">
-              "Turning data & code into intelligent experiences."
+              "Building scalable solutions across multiple tech stacks."
             </span>
           </p>
         </div>
