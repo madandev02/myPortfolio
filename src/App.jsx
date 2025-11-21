@@ -36,7 +36,7 @@ function App() {
       {/* Footer */}
       <footer className="w-full py-6 text-center text-sm text-[#8b949e] border-t border-[#21262d] mt-24">
         {/* Footer text */}
-        <p>© {new Date().getFullYear()} MadanDev. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} MadanDev. Hecho con ❤.</p>
       </footer>
     </div>
   );

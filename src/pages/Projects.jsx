@@ -66,14 +66,14 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="relative w-full py-24 text-center max-w-7xl mx-auto px-6 overflow-hidden"
+      className="relative w-full py-28 scroll-mt-36 text-center max-w-7xl mx-auto px-6 overflow-hidden"
     >
       {/* 💫 Subtle background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,201,255,0.06)_0%,transparent_70%)] pointer-events-none"></div>
 
       {/* 🧠 Section title */}
       <h2 className="text-4xl md:text-5xl font-bold mb-14 bg-gradient-to-r from-[#00c9ff] to-[#92fe9d] bg-clip-text text-transparent drop-shadow-[0_0_12px_rgba(0,201,255,0.4)] relative z-10">
-        Projects
+        Proyectos
       </h2>
 
       {/* 🧱 Projects grid */}
@@ -90,7 +90,7 @@ const Projects = () => {
             onClick={() => setShowAll(!showAll)}
             className="px-8 py-3 rounded-full bg-[#00c9ff] text-[#0d1117] font-medium hover:bg-[#00b2e3] transition-all duration-300 shadow-md hover:shadow-[#00c9ff]/30"
           >
-            {showAll ? "Show Less" : "Show More"}
+            {showAll ? "Mostrar menos" : "Mostrar más"}
           </button>
         </div>
       )}

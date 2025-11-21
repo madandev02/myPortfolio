@@ -21,7 +21,7 @@ const Education = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          Education
+          Educación
         </motion.h2>
 
         <div className="space-y-10">
@@ -36,7 +36,7 @@ const Education = () => {
             <div className="flex items-center gap-3 mb-3">
               <FaGraduationCap className="text-[#00c9ff] text-2xl" />
               <h3 className="text-xl font-semibold">
-                Bachelor of Computer Engineering
+                Ingeniería en Computación e Informática
               </h3>
             </div>
 
@@ -45,8 +45,9 @@ const Education = () => {
             </p>
 
             <p className="text-[#b9c2cf]">
-              Currently studying Computer Engineering with a focus on programming,
-              systems, and modern technologies. More info at{" "}
+              Actualmente estudio Ingeniería en Computación e Informática,
+              con enfoque en programación, sistemas y tecnologías modernas.
+              Más información en{" "}
               <a
                 href="https://tec.umayor.cl/tecnico-en-informatica"
                 target="_blank"
@@ -69,7 +70,7 @@ const Education = () => {
             >
               <div className="flex items-center gap-3 mb-4">
                 <FaCertificate className="text-[#92fe9d] text-2xl" />
-                <h3 className="text-xl font-semibold">Platzi Certificates</h3>
+                <h3 className="text-xl font-semibold">Certificados de Platzi</h3>
               </div>
 
               <ul className="space-y-3">
@@ -88,7 +89,7 @@ const Education = () => {
                       rel="noopener noreferrer"
                       className="text-[#00c9ff] hover:text-[#92fe9d] transition-colors duration-200 flex items-center gap-1"
                     >
-                      View <FaExternalLinkAlt className="text-xs" />
+                      Ver <FaExternalLinkAlt className="text-xs" />
                     </a>
                   </motion.li>
                 ))}

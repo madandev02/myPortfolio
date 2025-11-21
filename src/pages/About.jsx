@@ -16,7 +16,7 @@ const About = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          About Me
+          Sobre mí
         </motion.h2>
 
         {/* --- Content Wrapper --- */}
@@ -40,51 +40,52 @@ const About = () => {
           <div className="text-left max-w-xl">
             {/* Intro paragraph */}
             <p className="mb-4 leading-relaxed text-[#9ba6b4]">
-              I'm a passionate{" "}
+              Soy un{" "}
               <span className="font-semibold text-[#e6edf3]">
-                Full-Stack Developer
+                Desarrollador Full-Stack
               </span>{" "}
-              currently mastering a dual-stack approach with{" "}
+              apasionado, actualmente dominando un enfoque de doble stack con{" "}
               <span className="font-semibold text-[#00c9ff]">JavaScript/TypeScript</span>{" "}
-              and <span className="font-semibold text-[#E76F00]">Java</span>. 
-              I'm focused on building scalable, high-performance web applications 
-              using modern technologies and clean architecture principles.
+              y <span className="font-semibold text-[#E76F00]">Java</span>.
+              Me enfoco en construir aplicaciones web escalables y de alto rendimiento,
+              utilizando tecnologías modernas y principios de arquitectura limpia.
             </p>
 
             {/* Learning journey */}
             <p className="mb-4 leading-relaxed text-[#9ba6b4]">
-              My current learning path includes advanced{" "}
+              Mi ruta de aprendizaje actual incluye{" "}
               <span className="font-semibold text-[#00c9ff]">
-                React & Next.js
+                React & Next.js avanzados
               </span>
-              , enterprise-level{" "}
+              , desarrollo empresarial con{" "}
               <span className="font-semibold text-[#00c9ff]">
                 Spring Boot
               </span>
-              , and modern{" "}
+              , y prácticas modernas de{" "}
               <span className="font-semibold text-[#00c9ff]">
-                DevOps practices
-              </span>
-              . I believe in continuous learning and staying updated with industry trends.
+                DevOps
+              </span>.
+              Creo en el aprendizaje continuo y en mantenerme actualizado con las tendencias de la industria.
             </p>
 
             {/* Current stack */}
             <p className="mb-4 leading-relaxed text-[#9ba6b4]">
-              I specialize in the{" "}
+              Me especializo en el stack{" "}
               <span className="font-semibold text-[#e6edf3]">
-                MERN stack (MongoDB, Express, React, Node.js)
-              </span>
-              {" "}while expanding into{" "}
+                MERN (MongoDB, Express, React, Node.js)
+              </span>{" "}
+              mientras expando mis conocimientos hacia{" "}
               <span className="font-semibold text-[#00c9ff]">
-                Java Spring Boot for backend systems
+                Java Spring Boot para sistemas backend
               </span>
-              . I'm also exploring cloud technologies and containerization with Docker and Kubernetes.
+              . También estoy explorando tecnologías cloud y containerización con Docker y Kubernetes.
             </p>
 
             {/* Career goals */}
             <p className="leading-relaxed text-[#9ba6b4]">
-              My goal is to become a versatile developer capable of tackling complex challenges 
-              across different tech stacks, contributing to both startup innovation and enterprise solutions.
+              Mi objetivo es convertirme en un desarrollador versátil, capaz de enfrentar
+              desafíos complejos en diferentes stacks tecnológicos, aportando tanto en
+              innovación para startups como en soluciones empresariales.
             </p>
 
             {/* --- Location Info --- */}
@@ -96,7 +97,7 @@ const About = () => {
             >
               <FaMapMarkerAlt className="text-[#00c9ff] text-lg" />
               <span className="text-[#e6edf3] font-medium">
-                Based in{" "}
+                Resido en{" "}
                 <span className="text-[#00c9ff] font-semibold">
                   Santiago, Chile
                 </span>{" "}

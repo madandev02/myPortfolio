@@ -3,11 +3,11 @@ import { FaGithub, FaFileAlt, FaEnvelope } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
 const availabilityMessages = [
-  "👨‍💻 Open to Full-time Opportunities",
-  "💻 Available for Freelance Work",
-  "🚀 Building Modern Full-Stack Solutions",
-  "☕ Mastering Java & Spring Boot",
-  "🌱 Always Learning & Growing as a Developer",
+  "👨‍💻 Abierto a oportunidades Full-Time",
+  "💻 Disponible para trabajo Freelance",
+  "🚀 Construyendo soluciones Full-Stack modernas",
+  "☕ Dominando Java & Spring Boot",
+  "🌱 Siempre aprendiendo y creciendo como desarrollador",
 ];
 
 const Home = () => {
@@ -44,7 +44,7 @@ const Home = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.8 }}
       >
-        Hi, I'm{" "}
+        Hola, soy{" "}
         <span className="bg-gradient-to-r from-[#00c9ff] to-[#92fe9d] bg-clip-text text-transparent">
           Mauricio Narvaez
         </span>
@@ -85,8 +85,8 @@ const Home = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.4, duration: 0.8 }}
       >
-        Full-Stack Developer specializing in modern JavaScript and Java ecosystems. 
-        Passionate about building scalable applications with clean architecture and best practices.
+        Desarrollador Full-Stack especializado en los ecosistemas modernos de JavaScript y Java. 
+        Apasionado por crear aplicaciones escalables con arquitectura limpia y buenas prácticas.
       </motion.h2>
 
       {/* --- Developer "Code Block" (Updated Stack) --- */}
@@ -148,7 +148,7 @@ const Home = () => {
           <p>
             motto:{" "}
             <span className="text-[#92fe9d]">
-              "Building scalable solutions across multiple tech stacks."
+              "Construyendo soluciones escalables en múltiples stacks tecnológicos."
             </span>
           </p>
         </div>
@@ -177,14 +177,14 @@ const Home = () => {
           rel="noopener noreferrer"
           className="flex items-center gap-2 px-6 py-2 rounded-full bg-[#00c9ff] text-[#0d1117] font-medium hover:bg-[#00b2e3] transition-all duration-300 shadow-md hover:shadow-[#00c9ff]/30 text-sm sm:text-base"
         >
-          <FaFileAlt className="text-lg" /> Resume
+          <FaFileAlt className="text-lg" /> Currículum
         </a>
 
         <a
           href="#contact"
           className="flex items-center gap-2 px-6 py-2 rounded-full bg-[#00ff88] text-[#0d1117] font-medium hover:bg-[#00e67a] transition-all duration-300 shadow-md hover:shadow-[#00ff88]/30 text-sm sm:text-base"
         >
-          <FaEnvelope className="text-lg" /> Contact Me
+          <FaEnvelope className="text-lg" /> Contáctame
         </a>
       </motion.div>
     </motion.section>

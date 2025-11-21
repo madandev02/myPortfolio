@@ -6,12 +6,12 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
 
   const links = [
-    { href: "#home", label: "Home" },
-    { href: "#about", label: "About" },
-    { href: "#skills", label: "Skills" },
-    { href: "#projects", label: "Projects" },
-    { href: "#education", label: "Education" },
-    { href: "#contact", label: "Contact" },
+    { href: "#home", label: "Inicio" },
+    { href: "#about", label: "Sobre mí" },
+    { href: "#skills", label: "Habilidades" },
+    { href: "#projects", label: "Proyectos" },
+    { href: "#education", label: "Educación" },
+    { href: "#contact", label: "Contacto" },
   ];
 
   // 🧭 Detect active section on scroll
