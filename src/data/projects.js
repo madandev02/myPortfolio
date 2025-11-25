@@ -1,11 +1,11 @@
 const projects = [
   {
-    title: "FitSphere Admin Dashboard",
+    title: "Banco Nova",
     description:
-      "Un panel de administración completo para FitSphere, construido con React y Tailwind CSS.",
-    link: "https://github.com/madandev02/fitSphere-admindashboard",
-    demo: "https://fit-sphere-admindashboard.vercel.app/",
-    image: "/images/admindashboard.png", // screenshot placeholder
+      "Una aplicación de banco fullstack conReact, AntDesign y Tailwind CSS. Para el Backend Springboot, Docker, PostegreSQL.",
+    link: "https://github.com/madandev02/banco-nova",
+    demo: "https://banco-nova.netlify.app/",
+    image: "/images/banco-nova.png", // screenshot placeholder
   },
   {
     title: "Tech E-commerce 'Techstore'",
