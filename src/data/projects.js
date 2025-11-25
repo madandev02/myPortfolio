@@ -2,18 +2,10 @@ const projects = [
   {
     title: "Banco Nova",
     description:
-      "Una aplicación de banco fullstack conReact, AntDesign y Tailwind CSS. Para el Backend Springboot, Docker, PostegreSQL.",
+      "Una aplicación de banco fullstack con React, Ant Design y Tailwind CSS. Para el Backend Springboot, Docker, PostegreSQL.",
     link: "https://github.com/madandev02/banco-nova",
     demo: "https://banco-nova.netlify.app/",
     image: "/images/banco-nova.png", // screenshot placeholder
-  },
-  {
-    title: "Tech E-commerce 'Techstore'",
-    description:
-      "Un sitio e-commerce totalmente responsivo, construido con React y Tailwind CSS.",
-    link: "https://github.com/madandev02/tech-ecommerce",
-    demo: "https://tech-ecommerce-eosin.vercel.app/",
-    image: "/images/ecommerce.png",
   },
   {
     title: "TradePro",
