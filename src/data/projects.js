@@ -16,9 +16,9 @@ const projects = [
     image: "/images/tradepro.png",
   },
   {
-    title: "NovaJobs Chile",
+    title: "Gestor de Gastos MERN",
     description:
-      "Una aplicación fullstack de portal de empleo construida con el Stack MERN (MongoDB, Express.js, React, Node.js).",
+      "Una aplicación fullstack de gestor de gastos con MERN Stack (MongoDB, Express, React, Node.js). Inspirada de la aplicación de MoneyStats de IOS",
     link: "https://github.com/madandev02",
     demo: "https://github.com/madandev02",
     image: "/images/proximamente.jpg", // screenshot placeholder
