@@ -8,28 +8,28 @@ const projects = [
     image: "/images/banco-nova.png", // screenshot placeholder
   },
   {
+    title: "Scoring de Crédito",
+    description:
+      "Una aplicación fullstack para scoring de crédito con Vite + React, TailwindCSS. Para el Backend Springboot, PostgreSQL.",
+    link: "https://github.com/madandev02",
+    demo: "https://github.com/madandev02",
+    image: "/images/proximamente.jpg", // screenshot placeholder
+  },
+  {
+    title: "Pasarela de Pagos",
+    description:
+      "Aplicación fullstack de pasarela de pagos tipo flow, webpay. Con Vite + React, TailwindCSS. Para el Backend Springboot, PostgreSQL.",
+    link: "https://github.com/madandev02",
+    demo: "https://github.com/madandev02/",
+    image: "/images/proximamente.jpg", // screenshot placeholder
+  },
+  {
     title: "TradePro",
     description:
       "Landing Page de trading construida con Vite + React y Tailwind CSS.",
     link: "https://github.com/madandev02/trading-lading",
     demo: "https://trading-lading-psi.vercel.app/",
     image: "/images/tradepro.png",
-  },
-  {
-    title: "Gestor de Gastos MERN",
-    description:
-      "Una aplicación fullstack de gestor de gastos con MERN Stack (MongoDB, Express, React, Node.js). Inspirada de la aplicación de MoneyStats de IOS",
-    link: "https://github.com/madandev02",
-    demo: "https://github.com/madandev02",
-    image: "/images/proximamente.jpg", // screenshot placeholder
-  },
-  {
-    title: "TradeNova",
-    description:
-      "Aplicación fullstack para trading (Stack a definir).",
-    link: "https://github.com/madandev02",
-    demo: "https://github.com/madandev02/",
-    image: "/images/proximamente.jpg", // screenshot placeholder
   },
 ];
 
