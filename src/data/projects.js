@@ -16,14 +16,6 @@ const projects = [
     image: "/images/proximamente.jpg", // screenshot placeholder
   },
   {
-    title: "Pasarela de Pagos",
-    description:
-      "Aplicación fullstack de pasarela de pagos tipo flow, webpay. Con Vite + React, TailwindCSS. Para el Backend Springboot, PostgreSQL.",
-    link: "https://github.com/madandev02",
-    demo: "https://github.com/madandev02/",
-    image: "/images/proximamente.jpg", // screenshot placeholder
-  },
-  {
     title: "TradePro",
     description:
       "Landing Page de trading construida con Vite + React y Tailwind CSS.",
