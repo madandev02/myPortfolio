@@ -7,166 +7,156 @@ import {
   FaReact,
   FaGitAlt,
   FaGithub,
-  FaNodeJs,
   FaAws,
-  FaDatabase,
-  FaFigma,
   FaJava,
   FaLinux,
+  FaNodeJs,
+  FaWindows,
 } from "react-icons/fa";
 import {
-  SiNextdotjs,
+  SiDotnet,
+  SiSpringboot,
+  SiTypescript,
   SiTailwindcss,
-  SiExpress,
-  SiMongodb,
   SiPostgresql,
+  SiMongodb,
+  SiMysql,
+  SiRedis,
   SiDocker,
+  SiKubernetes,
   SiPostman,
   SiVite,
-  SiTypescript,
-  SiSpringboot,
   SiSwagger,
-  SiKubernetes,
-  SiRedis,
-  SiGraphql,
   SiJest,
   SiCypress,
-  SiTerraform,
+  SiSelenium,
+  SiExpress,
   SiJenkins,
+  SiIntellijidea,
+  SiNextdotjs,
 } from "react-icons/si";
 import { DiTerminal } from "react-icons/di";
 
-// ❗ KEYS MANTENIDAS EN INGLÉS (importante para que el código funcione)
-// Solo traducimos EL TEXTO visible al usuario en botones y títulos.
+/* ================================
+   Skills aligned 1:1 with CV
+================================ */
+
 const skillsByCategory = {
-  "Modern Frontend": [
+  Backend: [
+    { icon: <SiDotnet className="text-[#512BD4]" />, label: "C# / .NET / ASP.NET Core" },
+    { icon: <FaJava className="text-[#E76F00]" />, label: "Java" },
+    { icon: <SiSpringboot className="text-[#6DB33F]" />, label: "Spring Boot" },
+    { icon: <FaNodeJs className="text-[#3C873A]" />, label: "Node.js" },
+    { icon: <SiExpress className="text-white" />, label: "Express" },
+    { icon: <SiSwagger className="text-[#85EA2D]" />, label: "REST APIs / Swagger" },
+    { icon: <SiSwagger className="text-[#85EA2D]" />, label: "JWT Authentication" },
+  ],
+
+  Frontend: [
     { icon: <FaHtml5 className="text-[#E44D26]" />, label: "HTML5" },
     { icon: <FaCss3Alt className="text-[#1572B6]" />, label: "CSS3" },
-    { icon: <FaJs className="text-[#F7DF1E]" />, label: "JavaScript" },
+    { icon: <FaJs className="text-[#F7DF1E]" />, label: "JavaScript (ES6+)" },
     { icon: <SiTypescript className="text-[#3178C6]" />, label: "TypeScript" },
-    { icon: <FaReact className="text-[#61DAFB]" />, label: "React.js" },
+    { icon: <FaReact className="text-[#61DAFB]" />, label: "React" },
     { icon: <SiNextdotjs className="text-white" />, label: "Next.js" },
     { icon: <SiTailwindcss className="text-[#38BDF8]" />, label: "Tailwind CSS" },
     { icon: <SiVite className="text-[#BD34FE]" />, label: "Vite" },
   ],
 
-  "JavaScript Backend": [
-    { icon: <FaNodeJs className="text-[#68A063]" />, label: "Node.js" },
-    { icon: <SiExpress className="text-white" />, label: "Express.js" },
-    { icon: <SiMongodb className="text-[#4DB33D]" />, label: "MongoDB" },
-    { icon: <SiRedis className="text-[#DC382D]" />, label: "Redis" },
-    { icon: <SiGraphql className="text-[#E10098]" />, label: "GraphQL" },
+  Databases: [
     { icon: <SiPostgresql className="text-[#336791]" />, label: "PostgreSQL" },
+    { icon: <SiMysql className="text-[#4479A1]" />, label: "MySQL" },
+    { icon: <SiMongodb className="text-[#47A248]" />, label: "MongoDB" },
+    { icon: <SiRedis className="text-[#DC382D]" />, label: "Redis" },
   ],
 
-  "Java Backend": [
-    { icon: <FaJava className="text-[#E76F00]" />, label: "Java" },
-    { icon: <SiSpringboot className="text-[#6DB33F]" />, label: "Spring Boot" },
-    { icon: <SiPostgresql className="text-[#336791]" />, label: "PostgreSQL" },
-    { icon: <FaDatabase className="text-[#336791]" />, label: "JPA/Hibernate" },
+  "QA & Testing": [
+    { icon: <SiSelenium className="text-[#43B02A]" />, label: "Selenium" },
+    { icon: <SiCypress className="text-[#69D3A7]" />, label: "Cypress" },
+    { icon: <SiJest className="text-[#C21325]" />, label: "Jest" },
+    { icon: <SiPostman className="text-[#FF6C37]" />, label: "Postman" },
+    { icon: <SiSwagger className="text-[#85EA2D]" />, label: "API Testing" },
+    { icon: <SiSwagger className="text-[#85EA2D]" />, label: "Functional Testing" },
   ],
 
   "DevOps & Cloud": [
     { icon: <SiDocker className="text-[#0DB7ED]" />, label: "Docker" },
-    { icon: <SiKubernetes className="text-[#326CE5]" />, label: "Kubernetes" },
-    { icon: <FaAws className="text-[#FF9900]" />, label: "AWS" },
-    { icon: <SiTerraform className="text-[#7B42BC]" />, label: "Terraform" },
+    { icon: <SiKubernetes className="text-[#326CE5]" />, label: "Kubernetes (Concepts)" },
+    { icon: <FaAws className="text-[#FF9900]" />, label: "AWS (EC2, S3, IAM)" },
     { icon: <SiJenkins className="text-[#D24939]" />, label: "Jenkins" },
   ],
 
-  "Testing & Quality": [
-    { icon: <SiJest className="text-[#C21325]" />, label: "Jest" },
-    { icon: <SiCypress className="text-[#69D3A7]" />, label: "Cypress" },
-    { icon: <SiSwagger className="text-[#85EA2D]" />, label: "Swagger" },
+  "IT Infrastructure": [
+    { icon: <FaLinux className="text-[#FCC624]" />, label: "Linux" },
+    { icon: <FaWindows className="text-[#00A4EF]" />, label: "Windows Server" },
+    { icon: <FaWindows className="text-[#00A4EF]" />, label: "LAN / WIFI Networks" },
+    { icon: <FaLinux className="text-[#9ba6b4]" />, label: "Troubleshooting" },
   ],
 
-  "Tools & Others": [
+  Tools: [
     { icon: <FaGitAlt className="text-[#F05032]" />, label: "Git" },
     { icon: <FaGithub className="text-white" />, label: "GitHub" },
-    { icon: <SiPostman className="text-[#FF6C37]" />, label: "Postman" },
-    { icon: <FaFigma className="text-[#A259FF]" />, label: "Figma" },
-    { icon: <FaLinux className="text-[#FCC624]" />, label: "Linux" },
-    { icon: <DiTerminal className="text-[#4EAA25]" />, label: "Terminal" },
+    { icon: <SiIntellijidea className="text-[#FC8019]" />, label: "IntelliJ IDEA" },
+    { icon: <DiTerminal className="text-[#4EAA25]" />, label: "Linux Terminal" },
+
+    // Tools without official icons (correct & professional)
+    { icon: <span className="text-lg font-bold">VS</span>, label: "Visual Studio" },
+    { icon: <span className="text-lg font-bold">VSC</span>, label: "VS Code" },
+    { icon: <span className="text-lg font-bold">FG</span>, label: "Figma" },
   ],
 };
 
 export default function Skills() {
-  const [activeCategory, setActiveCategory] = useState(Object.keys(skillsByCategory)[0]);
+  const categories = Object.keys(skillsByCategory);
+  const [activeCategory, setActiveCategory] = useState(categories[0]);
 
   return (
-    <section id="skills" className="relative w-full py-24 text-[#e6edf3] overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,201,255,0.08)_0%,transparent_70%)] pointer-events-none"></div>
-
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
-
-        {/* Title */}
-        <motion.h2
-          className="text-4xl md:text-5xl font-bold text-center mb-14 bg-gradient-to-r from-[#00c9ff] to-[#92fe9d] bg-clip-text text-transparent"
-        >
-          Tech Stack & Habilidades
+    <section id="skills" className="relative w-full py-24 text-[#e6edf3]">
+      <div className="max-w-6xl mx-auto px-6">
+        <motion.h2 className="text-4xl md:text-5xl font-bold text-center mb-10 bg-gradient-to-r from-[#00c9ff] to-[#92fe9d] bg-clip-text text-transparent">
+          Tech Stack & Skills
         </motion.h2>
 
-        {/* Description */}
-        <motion.p className="text-center text-lg text-[#9ba6b4] mb-12 max-w-2xl mx-auto">
-          Desarrollador Full-Stack especializado en <span className="text-[#00c9ff]">JavaScript</span> y <span className="text-[#E76F00]">Java</span>.
-          Stack moderno con tecnologías empresariales.
+        <motion.p className="text-center text-lg text-[#9ba6b4] mb-12 max-w-3xl mx-auto">
+          Full Stack Developer with a strong backend focus, combining{" "}
+          <span className="text-[#512BD4]">.NET</span>,{" "}
+          <span className="text-[#E76F00]">Java</span>,{" "}
+          <span className="text-[#3C873A]">Node.js</span>, modern frontend
+          frameworks, QA automation, and infrastructure expertise.
         </motion.p>
 
-        {/* Category Buttons */}
-        <div className="flex justify-center mb-10 gap-3 flex-wrap">
-          {Object.keys(skillsByCategory).map((category) => (
-            <motion.button
+        {/* Tabs */}
+        <div className="flex justify-center gap-3 mb-12 flex-wrap">
+          {categories.map((category) => (
+            <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-4 py-2 rounded-full font-semibold text-sm transition-all duration-300 backdrop-blur-sm ${
+              className={`px-5 py-2 rounded-full text-sm font-semibold transition ${
                 activeCategory === category
                   ? "bg-gradient-to-r from-[#00c9ff] to-[#92fe9d] text-black"
                   : "bg-[#1f2a36]/70 text-[#9ba6b4] hover:text-white hover:bg-[#00c9ff]/20"
               }`}
             >
-              {/* 🔥 Aquí traducimos SOLO LO VISUAL */}
-              {category === "Modern Frontend" && "Frontend Moderno"}
-              {category === "JavaScript Backend" && "Backend JavaScript"}
-              {category === "Java Backend" && "Backend Java"}
-              {category === "DevOps & Cloud" && "DevOps & Cloud"}
-              {category === "Testing & Quality" && "Testing & Calidad"}
-              {category === "Tools & Others" && "Herramientas & Otros"}
-            </motion.button>
+              {category}
+            </button>
           ))}
         </div>
 
-        {/* Skills Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+        {/* Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
           {skillsByCategory[activeCategory].map((skill, i) => (
-            <motion.div key={i} className="flex flex-col items-center justify-center p-4">
-              <div className="text-4xl mb-2">{skill.icon}</div>
-              <span className="text-xs font-medium text-[#9ba6b4]">{skill.label}</span>
+            <motion.div
+              key={i}
+              whileHover={{ y: -6, scale: 1.05 }}
+              className="flex flex-col items-center gap-2 p-5 rounded-xl bg-[#161b22]/40 border border-[#30363d]/70 hover:border-[#00c9ff]/50"
+            >
+              <div className="text-4xl">{skill.icon}</div>
+              <span className="text-sm text-[#c9d1d9] text-center">
+                {skill.label}
+              </span>
             </motion.div>
           ))}
         </div>
-
-        {/* Full Stack Summary */}
-        <motion.div className="mt-16 p-6 rounded-2xl bg-[#1f2a36]/40 border border-[#00c9ff]/20 backdrop-blur-sm">
-          <h3 className="text-xl font-bold text-center mb-4 text-[#00c9ff]">
-            🚀 Resumen Full-Stack
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-[#9ba6b4]">
-            <div>
-              <h4 className="font-semibold text-[#00c9ff] mb-2">Frontend</h4>
-              <p>React, Next.js, TypeScript, Tailwind</p>
-            </div>
-            <div>
-              <h4 className="font-semibold text-[#00c9ff] mb-2">Backend</h4>
-              <p>Node.js, Spring Boot, Java, REST/GraphQL</p>
-            </div>
-            <div>
-              <h4 className="font-semibold text-[#00c9ff] mb-2">Infraestructura</h4>
-              <p>Docker, Kubernetes, AWS, CI/CD</p>
-            </div>
-          </div>
-        </motion.div>
-
       </div>
     </section>
   );

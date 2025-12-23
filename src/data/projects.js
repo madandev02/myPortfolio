@@ -2,23 +2,26 @@ const projects = [
   {
     title: "Banco Nova",
     description:
-      "Una aplicación de banco fullstack con Vite + React, Ant Design y Tailwind CSS. Para el Backend Springboot, Docker, PostgreSQL.",
+      "Full Stack banking application featuring user authentication, account management, and transaction flows. Built with a modern frontend and a scalable backend architecture.",
+    tech: ["React", "Java", "Spring Boot", "PostgreSQL", "Docker"],
     link: "https://github.com/madandev02/banco-nova",
     demo: "https://banco-nova.netlify.app/",
-    image: "/images/banco-nova.png", // screenshot placeholder
+    image: "/images/banco-nova.png",
   },
   {
-    title: "Scoring de Crédito",
+    title: "Credit Scoring System",
     description:
-      "Una aplicación fullstack para scoring de crédito con Vite + React, TailwindCSS. Para el Backend Springboot, PostgreSQL.",
-    link: "https://github.com/madandev02",
-    demo: "https://github.com/madandev02",
-    image: "/images/proximamente.jpg", // screenshot placeholder
+      "Full Stack application designed to evaluate credit risk using structured data, business rules, and backend-driven scoring logic.",
+    tech: ["React", "Java", "Spring Boot", "PostgreSQL"],
+    link: "https://github.com/madandev02/scoring-credito-api",
+    demo: null,
+    image: null, // Backend-heavy project → no image
   },
   {
-    title: "TradePro",
+    title: "TradePro Landing Page",
     description:
-      "Landing Page de trading construida con Vite + React y Tailwind CSS.",
+      "Responsive landing page for a trading platform, focused on clean UI, performance, and modern frontend best practices.",
+    tech: ["React", "Tailwind CSS", "Vite"],
     link: "https://github.com/madandev02/trading-lading",
     demo: "https://trading-lading-psi.vercel.app/",
     image: "/images/tradepro.png",

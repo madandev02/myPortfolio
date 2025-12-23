@@ -66,7 +66,7 @@ const Contact = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          ¡Entremos en contacto!
+          Let’s Get in Touch
         </motion.h2>
 
         {/* 🧊 Form container */}
@@ -77,10 +77,15 @@ const Contact = () => {
           className="bg-[#161b22]/40 backdrop-blur-sm border border-[#1f2a36]/70 rounded-3xl p-10 shadow-md hover:shadow-[#00c9ff]/30 transition-all duration-300"
         >
           <p className="text-[#9ba6b4] mb-8">
-            ¿Tienes una pregunta, proyecto u oportunidad? ¡Me encantará leerte! 👋
+            Have a question, project, or professional opportunity in mind?
+            I’d be happy to hear from you 👋
           </p>
 
-          <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-6">
+          <form
+            ref={formRef}
+            onSubmit={handleSubmit}
+            className="flex flex-col gap-6"
+          >
             {/* Hidden honeypot */}
             <input
               type="text"
@@ -96,7 +101,7 @@ const Contact = () => {
               <input
                 type="text"
                 name="name"
-                placeholder="Tu nombre"
+                placeholder="Your name"
                 required
                 className="w-full border border-[#30363d]/80 rounded-full pl-12 pr-4 py-3 bg-[#0d1117]/70 text-[#e6edf3] placeholder-[#9ba6b4] focus:outline-none focus:ring-2 focus:ring-[#00c9ff]/60 transition"
               />
@@ -108,7 +113,7 @@ const Contact = () => {
               <input
                 type="email"
                 name="email"
-                placeholder="Tu correo"
+                placeholder="Your email address"
                 required
                 className="w-full border border-[#30363d]/80 rounded-full pl-12 pr-4 py-3 bg-[#0d1117]/70 text-[#e6edf3] placeholder-[#9ba6b4] focus:outline-none focus:ring-2 focus:ring-[#00c9ff]/60 transition"
               />
@@ -117,7 +122,7 @@ const Contact = () => {
             {/* Message */}
             <textarea
               name="message"
-              placeholder="Escribe tu mensaje..."
+              placeholder="Write your message here..."
               required
               rows={5}
               maxLength={600}
@@ -135,11 +140,11 @@ const Contact = () => {
               }`}
             >
               {loading ? (
-                <span className="animate-pulse">Enviando...</span>
+                <span className="animate-pulse">Sending...</span>
               ) : (
                 <>
                   <FaPaperPlane />
-                  Enviar mensaje
+                  Send Message
                 </>
               )}
             </motion.button>
@@ -161,12 +166,12 @@ const Contact = () => {
                 {status === "success" ? (
                   <>
                     <FaCheckCircle className="text-[#92fe9d] text-lg" />
-                    <span>¡Mensaje enviado con éxito! 🚀</span>
+                    <span>Your message has been sent successfully! 🚀</span>
                   </>
                 ) : (
                   <>
                     <FaExclamationCircle className="text-[#ff6b6b] text-lg" />
-                    <span>Algo salió mal. Inténtalo nuevamente.</span>
+                    <span>Something went wrong. Please try again.</span>
                   </>
                 )}
               </motion.div>

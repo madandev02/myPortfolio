@@ -1,131 +1,114 @@
-import { FaGithub, FaLinkedin, FaMapMarkerAlt } from "react-icons/fa";
-import profile from "../assets/profile.jpg";
 import { motion } from "framer-motion";
+import { FaMapMarkerAlt } from "react-icons/fa";
+import profileImg from "../assets/profile.jpg"; 
 
 const About = () => {
   return (
     <section
       id="about"
-      className="w-full py-24 relative z-10 bg-transparent text-[#e6edf3]"
+      className="relative w-full py-24 px-6 text-[#e6edf3] overflow-hidden"
     >
-      <div className="max-w-5xl mx-auto px-6 text-center">
-        {/* --- Section Title --- */}
+      {/* 🌌 Soft background */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,201,255,0.06)_0%,transparent_70%)] pointer-events-none"></div>
+
+      <div className="max-w-6xl mx-auto relative z-10">
+        {/* Title */}
         <motion.h2
-          className="text-4xl md:text-5xl font-bold mb-14 bg-gradient-to-r from-[#00c9ff] to-[#92fe9d] bg-clip-text text-transparent"
+          className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-[#00c9ff] to-[#92fe9d] bg-clip-text text-transparent"
           initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          Sobre mí
+          About Me
         </motion.h2>
 
-        {/* --- Content Wrapper --- */}
-        <motion.div
-          className="flex flex-col md:flex-row items-center gap-12 md:gap-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          {/* --- Profile Image with Glow --- */}
-          <div className="relative">
-            <div className="absolute inset-0 rounded-full bg-[#00c9ff]/40 blur-2xl"></div>
-            <img
-              src={profile}
-              alt="Mauricio Narvaez"
-              className="w-40 h-40 md:w-52 md:h-52 rounded-full object-cover shadow-lg relative z-10 border-4 border-[#1f6feb]"
-            />
-          </div>
-
-          {/* --- Text Content --- */}
-          <div className="text-left max-w-xl">
-            {/* Intro paragraph */}
-            <p className="mb-4 leading-relaxed text-[#9ba6b4]">
-              Soy un{" "}
-              <span className="font-semibold text-[#e6edf3]">
-                Desarrollador Full-Stack
-              </span>{" "}
-              apasionado, actualmente dominando un enfoque de doble stack con{" "}
-              <span className="font-semibold text-[#00c9ff]">JavaScript/TypeScript</span>{" "}
-              y <span className="font-semibold text-[#E76F00]">Java</span>.
-              Me enfoco en construir aplicaciones web escalables y de alto rendimiento,
-              utilizando tecnologías modernas y principios de arquitectura limpia.
-            </p>
-
-            {/* Learning journey */}
-            <p className="mb-4 leading-relaxed text-[#9ba6b4]">
-              Mi ruta de aprendizaje actual incluye{" "}
-              <span className="font-semibold text-[#00c9ff]">
-                React & Next.js avanzados
-              </span>
-              , desarrollo empresarial con{" "}
-              <span className="font-semibold text-[#00c9ff]">
-                Spring Boot
-              </span>
-              , y prácticas modernas de{" "}
-              <span className="font-semibold text-[#00c9ff]">
-                DevOps
-              </span>.
-              Creo en el aprendizaje continuo y en mantenerme actualizado con las tendencias de la industria.
-            </p>
-
-            {/* Current stack */}
-            <p className="mb-4 leading-relaxed text-[#9ba6b4]">
-              Me especializo en el stack{" "}
-              <span className="font-semibold text-[#e6edf3]">
-                MERN (MongoDB, Express, React, Node.js)
-              </span>{" "}
-              mientras expando mis conocimientos hacia{" "}
-              <span className="font-semibold text-[#00c9ff]">
-                Java Spring Boot para sistemas backend
-              </span>
-              . También estoy explorando tecnologías cloud y containerización con Docker y Kubernetes.
-            </p>
-
-            {/* Career goals */}
-            <p className="leading-relaxed text-[#9ba6b4]">
-              Mi objetivo es convertirme en un desarrollador versátil, capaz de enfrentar
-              desafíos complejos en diferentes stacks tecnológicos, aportando tanto en
-              innovación para startups como en soluciones empresariales.
-            </p>
-
-            {/* --- Location Info --- */}
-            <motion.div
-              className="mt-6 flex items-center gap-3 bg-[#161b22] border border-[#30363d] rounded-xl px-4 py-3 shadow-md"
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.3 }}
-            >
-              <FaMapMarkerAlt className="text-[#00c9ff] text-lg" />
-              <span className="text-[#e6edf3] font-medium">
-                Resido en{" "}
-                <span className="text-[#00c9ff] font-semibold">
-                  Santiago, Chile
-                </span>{" "}
-                🌍
-              </span>
-            </motion.div>
-
-            {/* --- Social Links --- */}
-            <div className="flex gap-6 mt-8">
-              <a
-                href="https://github.com/madandev02"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#9ba6b4] hover:text-[#00c9ff] transition text-2xl"
-              >
-                <FaGithub />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/mnarvv/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#9ba6b4] hover:text-[#00c9ff] transition text-2xl"
-              >
-                <FaLinkedin />
-              </a>
+        {/* Content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
+          {/* 🧍 Profile Image */}
+          <motion.div
+            className="flex flex-col items-center text-center"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="relative">
+              <div className="absolute inset-0 rounded-full bg-[#00c9ff]/30 blur-2xl"></div>
+              <img
+                src={profileImg}
+                alt="Mauricio Narvaez"
+                className="relative z-10 w-44 h-44 md:w-52 md:h-52 rounded-full object-cover border-4 border-[#30363d] shadow-lg"
+              />
             </div>
+
+            <h3 className="mt-6 text-2xl font-semibold">
+              Mauricio Narvaez
+            </h3>
+            <p className="text-[#9ba6b4] mt-1">
+              Full Stack Developer · Backend Oriented
+            </p>
+
+            <div className="mt-3 flex items-center gap-2 text-[#9ba6b4] text-sm">
+              <FaMapMarkerAlt className="text-[#00c9ff]" />
+              <span>Santiago, Chile</span>
+            </div>
+          </motion.div>
+
+          {/* 🧠 About Text */}
+          <div className="space-y-6 text-[#9ba6b4] text-lg leading-relaxed">
+            <motion.p
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1, duration: 0.6 }}
+            >
+              I am a <span className="text-[#e6edf3] font-medium">Full Stack Developer</span> with a strong
+              backend orientation, passionate about building reliable, scalable,
+              and maintainable software solutions.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+            >
+              My core experience includes{" "}
+              <span className="text-[#512BD4] font-medium">.NET</span>,{" "}
+              <span className="text-[#E76F00] font-medium">Java (Spring Boot)</span>, and{" "}
+              <span className="text-[#3C873A] font-medium">Node.js</span>, where I
+              develop REST APIs and backend services, while also working on
+              full-stack applications using{" "}
+              <span className="text-[#61DAFB] font-medium">React</span>.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+            >
+              I also bring experience in{" "}
+              <span className="text-[#92fe9d] font-medium">IT infrastructure and technical support</span>,
+              which helps me understand production environments, system
+              reliability, and networking. Additionally, I apply{" "}
+              <span className="text-[#92fe9d] font-medium">QA and test automation</span>{" "}
+              practices to ensure software quality.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+            >
+              I am driven by continuous learning, clean code, and collaboration,
+              aiming to grow as a versatile developer while contributing real
+              value to the teams and products I work with.
+            </motion.p>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
