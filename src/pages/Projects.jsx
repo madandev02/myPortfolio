@@ -1,138 +1,161 @@
 import { useState } from "react";
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
 import {
+  FaGithub,
+  FaExternalLinkAlt,
+  FaChevronDown,
+  FaChevronUp,
   FaReact,
   FaJava,
   FaNodeJs,
-  FaDatabase,
 } from "react-icons/fa";
+
 import {
-  SiDotnet,
   SiPostgresql,
   SiSwagger,
   SiDocker,
   SiSpringboot,
   SiTailwindcss,
   SiVite,
+  SiNextdotjs
 } from "react-icons/si";
+
 import projects from "../data/projects";
 
-// 🔹 Map tech names to icons (robust & extensible)
 const techIcons = {
   React: <FaReact className="text-[#61DAFB]" />,
   "Node.js": <FaNodeJs className="text-[#3C873A]" />,
   Java: <FaJava className="text-[#E76F00]" />,
   "Spring Boot": <SiSpringboot className="text-[#6DB33F]" />,
-
-  ".NET": <SiDotnet className="text-[#512BD4]" />,
-  "ASP.NET Core": <SiDotnet className="text-[#512BD4]" />,
-  "C#": <SiDotnet className="text-[#512BD4]" />, // ✅ FIX
-
   PostgreSQL: <SiPostgresql className="text-[#336791]" />,
-  Swagger: <SiSwagger className="text-[#85EA2D]" />,
+  Nextjs: <SiNextdotjs className="text-white" />,
   Docker: <SiDocker className="text-[#0DB7ED]" />,
-
   "Tailwind CSS": <SiTailwindcss className="text-[#38BDF8]" />,
-  Vite: <SiVite className="text-[#BD34FE]" />,
-
-  Database: <FaDatabase className="text-[#9ba6b4]" />,
 };
 
-// 🔹 Individual project card
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1 }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+};
+
 const ProjectCard = ({ title, description, tech, link, demo, image }) => (
-  <div className="bg-[#161b22]/50 backdrop-blur-sm border border-[#30363d]/80 rounded-2xl overflow-hidden flex flex-col shadow-md hover:shadow-[#00c9ff]/30 hover:border-[#00c9ff]/40 transition-all duration-300 hover:-translate-y-1">
-    {/* 🖼️ Image (optional) */}
+  <motion.div
+    variants={itemVariants}
+    whileHover={{ y: -8 }}
+    className="group relative flex flex-col w-full bg-[#161b22]/40 backdrop-blur-md border border-[#30363d] rounded-2xl overflow-hidden hover:border-[#00c9ff]/40 transition-all duration-300 shadow-xl"
+  >
     {image && (
-      <div className="w-full aspect-[16/10] overflow-hidden">
+      <div className="w-full aspect-video overflow-hidden border-b border-[#30363d]">
         <img
           src={image}
-          alt={`${title} preview`}
-          className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+          alt={title}
+          className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
         />
       </div>
     )}
 
-    {/* 📄 Content */}
-    <div className="flex flex-col justify-between flex-1 p-6">
-      <div>
-        <h3 className="text-xl font-semibold text-[#e6edf3] mb-3 text-center">
-          {title}
-        </h3>
+    <div className="p-6 flex flex-col flex-1">
+      {/* Título de la Card con gradiente al hover */}
+      <h3 className="text-2xl font-bold tracking-tight text-white mb-3 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-[#00c9ff] group-hover:to-[#92fe9d] group-hover:bg-clip-text group-hover:text-transparent">
+        {title}
+      </h3>
 
-        {/* 🔧 Tech icons */}
-        <div className="flex flex-wrap justify-center gap-3 mb-4 text-xl">
-          {tech.map((t, i) => (
-            <span key={i} title={t}>
-              {techIcons[t] || techIcons.Database}
-            </span>
-          ))}
-        </div>
+      <p className="text-[#8b949e] text-sm leading-relaxed mb-6 line-clamp-3 font-sans">
+        {description}
+      </p>
 
-        <p className="text-[#9ba6b4] text-sm leading-relaxed text-center">
-          {description}
-        </p>
+      {/* Tech badges */}
+      <div className="flex flex-wrap gap-2 mb-8">
+        {tech.map((t, i) => (
+          <span
+            key={i}
+            className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[#0d1117] border border-[#30363d] text-[10px] font-bold uppercase tracking-wider text-[#e6edf3]"
+          >
+            {techIcons[t] || null} {t}
+          </span>
+        ))}
       </div>
 
-      {/* 🔗 Actions */}
-      <div className="mt-6 flex justify-center gap-4">
+      {/* Botones de acción refinados */}
+      <div className="mt-auto flex items-center justify-start gap-3">
         {link && (
           <a
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-5 py-2 rounded-full text-sm text-[#e6edf3] border border-[#30363d]/80 hover:border-[#00c9ff] hover:text-[#00c9ff] transition-all duration-300"
+            className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#161b22] border border-[#30363d] text-[#8b949e] hover:text-[#00c9ff] hover:border-[#00c9ff] hover:shadow-[0_0_15px_rgba(0,201,255,0.2)] transition-all duration-300"
+            title="GitHub"
           >
-            <FaGithub className="text-lg" /> GitHub
+            <FaGithub size={18} />
           </a>
         )}
-
         {demo && (
           <a
             href={demo}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-5 py-2 rounded-full text-sm bg-[#00c9ff] text-[#0d1117] font-medium hover:bg-[#00b2e3] transition-all duration-300 shadow-md hover:shadow-[#00c9ff]/30"
+            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#161b22] border border-[#30363d] text-[#8b949e] text-[11px] font-bold tracking-tight hover:text-white hover:border-[#00c9ff]/50 hover:bg-[#00c9ff]/10 hover:shadow-[0_0_20px_rgba(0,201,255,0.15)] transition-all duration-300 active:scale-95"
           >
-            <FaExternalLinkAlt className="text-base" /> Live Demo
+            Live Preview <FaExternalLinkAlt size={10} />
           </a>
         )}
       </div>
     </div>
-  </div>
+  </motion.div>
 );
 
 const Projects = () => {
   const [showAll, setShowAll] = useState(false);
-
   const DEFAULT_COUNT = 3;
-  const displayedProjects = showAll
-    ? projects
-    : projects.slice(0, DEFAULT_COUNT);
+  const displayedProjects = showAll ? projects : projects.slice(0, DEFAULT_COUNT);
 
   return (
-    <section
-      id="projects"
-      className="relative w-full py-28 scroll-mt-36 text-center max-w-7xl mx-auto px-6 overflow-hidden"
-    >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,201,255,0.06)_0%,transparent_70%)] pointer-events-none"></div>
+    <section id="projects" className="relative w-full py-24 max-w-7xl mx-auto px-6 font-sans">
+      {/* Glow de fondo sutil */}
+      <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#00c9ff]/5 blur-[120px] rounded-full pointer-events-none -z-10" />
 
-      <h2 className="text-4xl md:text-5xl font-bold mb-14 bg-gradient-to-r from-[#00c9ff] to-[#92fe9d] bg-clip-text text-transparent relative z-10">
-        Projects
-      </h2>
-
-      <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 relative z-10">
-        {displayedProjects.map((project, index) => (
-          <ProjectCard key={index} {...project} />
-        ))}
+      <div className="text-center mb-16">
+        {/* Título corregido: "Projects" y fuente igual a "About Me" */}
+        <h2 className="text-4xl md:text-5xl font-extrabold tracking-tighter bg-gradient-to-r from-[#00c9ff] to-[#92fe9d] bg-clip-text text-transparent mb-4">
+          Projects
+        </h2>
+        <div className="w-16 h-1 bg-gradient-to-r from-[#00c9ff] to-[#92fe9d] mx-auto rounded-full opacity-40" />
       </div>
 
+      <motion.div
+        key={showAll ? "expanded" : "collapsed"}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 relative z-10"
+      >
+        <AnimatePresence mode="popLayout">
+          {displayedProjects.map((project, index) => (
+            <ProjectCard key={index} {...project} />
+          ))}
+        </AnimatePresence>
+      </motion.div>
+
       {projects.length > DEFAULT_COUNT && (
-        <div className="mt-14 relative z-10">
+        <div className="mt-16 flex justify-center">
           <button
             onClick={() => setShowAll(!showAll)}
-            className="px-8 py-3 rounded-full bg-[#00c9ff] text-[#0d1117] font-medium hover:bg-[#00b2e3] transition-all duration-300 shadow-md hover:shadow-[#00c9ff]/30"
+            className="flex items-center gap-2.5 px-8 py-3 rounded-full border border-[#30363d] text-[12px] font-bold tracking-tight text-[#8b949e] hover:border-[#00c9ff] hover:text-[#00c9ff] bg-[#0d1117] hover:shadow-[0_0_25px_rgba(0,201,255,0.2)] transition-all duration-300 active:scale-95"
           >
-            {showAll ? "Show Less" : "Show More"}
+            {showAll ? (
+              <>Show Less <FaChevronUp size={12} /></>
+            ) : (
+              <>Show More <FaChevronDown size={12} /></>
+            )}
           </button>
         </div>
       )}

@@ -1,12 +1,15 @@
 import { useState, useRef, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import { motion, AnimatePresence } from "framer-motion";
+
 import {
   FaUser,
   FaEnvelope,
   FaPaperPlane,
   FaCheckCircle,
   FaExclamationCircle,
+  FaGithub,
+  FaLinkedin,
 } from "react-icons/fa";
 
 const Contact = () => {
@@ -15,13 +18,12 @@ const Contact = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    emailjs.init("LZLck44kERPGZdzDi"); // PUBLIC KEY
+    emailjs.init("LZLck44kERPGZdzDi");
   }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Anti-bot validation
     if (formRef.current.honeypot.value) {
       setStatus("error");
       return;
@@ -52,132 +54,177 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="relative w-full py-24 px-6 text-[#e6edf3] overflow-hidden"
+      className="relative w-full py-32 px-6 text-[#e6edf3] overflow-hidden"
     >
-      {/* 🌌 Soft background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0d1117]/60 to-transparent"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,201,255,0.07)_0%,transparent_70%)] blur-3xl"></div>
+
+      {/* background glow */}
+
+      <div className="absolute left-[25%] top-20 w-[500px] h-[500px] bg-[#00c9ff]/8 blur-[160px] rounded-full -z-10"/>
+      <div className="absolute right-[25%] bottom-0 w-[500px] h-[500px] bg-[#92fe9d]/6 blur-[160px] rounded-full -z-10"/>
 
       <div className="max-w-2xl mx-auto text-center relative z-10">
-        {/* Title */}
+
         <motion.h2
-          className="text-4xl md:text-5xl font-bold mb-12 bg-gradient-to-r from-[#00c9ff] to-[#92fe9d] bg-clip-text text-transparent drop-shadow-[0_0_12px_rgba(0,201,255,0.4)]"
+          className="text-4xl md:text-5xl font-bold mb-12 bg-gradient-to-r from-[#00c9ff] to-[#92fe9d] bg-clip-text text-transparent"
           initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
         >
-          Let’s Get in Touch
+          Let’s Work Together
         </motion.h2>
 
-        {/* 🧊 Form container */}
+        <p className="text-[#9ba6b4] mb-10">
+          Interested in working together or discussing a project?
+          Feel free to reach out 👋
+        </p>
+
+        {/* SOCIAL LINKS */}
+
+        <div className="flex justify-center gap-6 mb-12">
+
+          <motion.a
+            whileHover={{ y: -4 }}
+            href="https://github.com/madandev02"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 bg-[#161b22]/60 backdrop-blur-xl border border-[#30363d] px-6 py-3 rounded-full hover:border-[#00c9ff]/50 hover:shadow-[0_10px_30px_rgba(0,201,255,0.2)] transition"
+          >
+            <FaGithub />
+            GitHub
+          </motion.a>
+
+          <motion.a
+            whileHover={{ y: -4 }}
+            href="https://www.linkedin.com/in/mnarvv/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 bg-[#161b22]/60 backdrop-blur-xl border border-[#30363d] px-6 py-3 rounded-full hover:border-[#00c9ff]/50 hover:shadow-[0_10px_30px_rgba(0,201,255,0.2)] transition"
+          >
+            <FaLinkedin />
+            LinkedIn
+          </motion.a>
+
+        </div>
+
+        {/* FORM */}
+
         <motion.div
           initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="bg-[#161b22]/40 backdrop-blur-sm border border-[#1f2a36]/70 rounded-3xl p-10 shadow-md hover:shadow-[#00c9ff]/30 transition-all duration-300"
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="bg-[#161b22]/60 backdrop-blur-xl border border-[#30363d]/80 rounded-3xl p-10 hover:border-[#00c9ff]/30 transition"
         >
-          <p className="text-[#9ba6b4] mb-8">
-            Have a question, project, or professional opportunity in mind?
-            I’d be happy to hear from you 👋
-          </p>
 
           <form
             ref={formRef}
             onSubmit={handleSubmit}
             className="flex flex-col gap-6"
           >
-            {/* Hidden honeypot */}
+
             <input
               type="text"
               name="honeypot"
               style={{ display: "none" }}
-              tabIndex="-1"
-              autoComplete="off"
             />
 
-            {/* Name */}
+            {/* name */}
+
             <div className="relative">
-              <FaUser className="absolute left-5 top-1/2 transform -translate-y-1/2 text-[#00c9ff] text-lg" />
+
+              <FaUser className="absolute left-5 top-1/2 -translate-y-1/2 text-[#00c9ff]" />
+
               <input
                 type="text"
                 name="name"
                 placeholder="Your name"
                 required
-                className="w-full border border-[#30363d]/80 rounded-full pl-12 pr-4 py-3 bg-[#0d1117]/70 text-[#e6edf3] placeholder-[#9ba6b4] focus:outline-none focus:ring-2 focus:ring-[#00c9ff]/60 transition"
+                className="w-full border border-[#30363d] rounded-full pl-12 pr-4 py-3 bg-[#0d1117] transition focus:outline-none focus:border-[#00c9ff]/60 focus:ring-2 focus:ring-[#00c9ff]/40"
               />
+
             </div>
 
-            {/* Email */}
+            {/* email */}
+
             <div className="relative">
-              <FaEnvelope className="absolute left-5 top-1/2 transform -translate-y-1/2 text-[#00c9ff] text-lg" />
+
+              <FaEnvelope className="absolute left-5 top-1/2 -translate-y-1/2 text-[#00c9ff]" />
+
               <input
                 type="email"
                 name="email"
-                placeholder="Your email address"
+                placeholder="Your email"
                 required
-                className="w-full border border-[#30363d]/80 rounded-full pl-12 pr-4 py-3 bg-[#0d1117]/70 text-[#e6edf3] placeholder-[#9ba6b4] focus:outline-none focus:ring-2 focus:ring-[#00c9ff]/60 transition"
+                className="w-full border border-[#30363d] rounded-full pl-12 pr-4 py-3 bg-[#0d1117] transition focus:outline-none focus:border-[#00c9ff]/60 focus:ring-2 focus:ring-[#00c9ff]/40"
               />
+
             </div>
 
-            {/* Message */}
+            {/* message */}
+
             <textarea
               name="message"
-              placeholder="Write your message here..."
-              required
+              placeholder="Write your message..."
               rows={5}
-              maxLength={600}
-              className="border border-[#30363d]/80 rounded-2xl px-4 py-3 bg-[#0d1117]/70 text-[#e6edf3] placeholder-[#9ba6b4] resize-none focus:outline-none focus:ring-2 focus:ring-[#00c9ff]/60 transition"
-            ></textarea>
+              required
+              className="border border-[#30363d] rounded-2xl px-4 py-3 bg-[#0d1117] transition focus:outline-none focus:border-[#00c9ff]/60 focus:ring-2 focus:ring-[#00c9ff]/40"
+            />
 
-            {/* Submit button */}
             <motion.button
               type="submit"
               disabled={loading}
               whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-              className={`flex items-center justify-center gap-2 text-lg font-semibold bg-gradient-to-r from-[#00c9ff] to-[#92fe9d] text-[#0a0f16] px-8 py-3 rounded-full shadow-md hover:shadow-[#00c9ff]/40 transition-all ${
-                loading ? "opacity-60 cursor-not-allowed" : ""
-              }`}
+              whileTap={{ scale: 0.96 }}
+              className="flex items-center justify-center gap-2 text-lg font-semibold bg-gradient-to-r from-[#00c9ff] to-[#92fe9d] text-[#0a0f16] px-8 py-3 rounded-full shadow-lg"
             >
-              {loading ? (
-                <span className="animate-pulse">Sending...</span>
-              ) : (
+
+              {loading ? "Sending..." : (
                 <>
                   <FaPaperPlane />
                   Send Message
                 </>
               )}
+
             </motion.button>
+
           </form>
 
-          {/* Status feedback */}
+          {/* status */}
+
           <AnimatePresence>
+
             {status && (
+
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                className={`mt-8 p-4 rounded-xl flex items-center justify-center gap-3 text-sm font-medium ${
+                exit={{ opacity: 0 }}
+                className={`mt-6 flex justify-center items-center gap-2 text-sm ${
                   status === "success"
-                    ? "bg-[#00c9ff]/10 text-[#92fe9d] border border-[#00c9ff]/30"
-                    : "bg-[#ff4d4d]/10 text-[#ff6b6b] border border-[#ff6b6b]/30"
+                    ? "text-[#92fe9d]"
+                    : "text-[#ff6b6b]"
                 }`}
               >
+
                 {status === "success" ? (
                   <>
-                    <FaCheckCircle className="text-[#92fe9d] text-lg" />
-                    <span>Your message has been sent successfully! 🚀</span>
+                    <FaCheckCircle />
+                    Message sent successfully
                   </>
                 ) : (
                   <>
-                    <FaExclamationCircle className="text-[#ff6b6b] text-lg" />
-                    <span>Something went wrong. Please try again.</span>
+                    <FaExclamationCircle />
+                    Something went wrong
                   </>
                 )}
+
               </motion.div>
+
             )}
+
           </AnimatePresence>
+
         </motion.div>
+
       </div>
     </section>
   );

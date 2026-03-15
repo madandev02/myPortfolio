@@ -2,29 +2,43 @@ const projects = [
   {
     title: "Banco Nova",
     description:
-      "Full Stack banking application featuring user authentication, account management, and transaction flows. Built with a modern frontend and a scalable backend architecture.",
+      "Full Stack banking application with authentication, account management and transaction flows. Designed with a scalable backend architecture and modern frontend interface.",
     tech: ["React", "Java", "Spring Boot", "PostgreSQL", "Docker"],
     link: "https://github.com/madandev02/banco-nova",
     demo: "https://banco-nova.netlify.app/",
     image: "/images/banco-nova.png",
   },
+
   {
     title: "Credit Scoring System",
     description:
-      "Full Stack application designed to evaluate credit risk using structured data, business rules, and backend-driven scoring logic.",
-    tech: ["React", "Java", "Spring Boot", "PostgreSQL"],
+      "Backend-driven credit risk evaluation system implementing business rules and structured financial scoring logic.",
+    tech: ["Java", "Spring Boot", "PostgreSQL", "REST API"],
     link: "https://github.com/madandev02/scoring-credito-api",
     demo: null,
-    image: null, // Backend-heavy project → no image
+    image: null,
   },
+
   {
-    title: "TradePro Landing Page",
+    title: "TaskFlow API",
     description:
-      "Responsive landing page for a trading platform, focused on clean UI, performance, and modern frontend best practices.",
-    tech: ["React", "Tailwind CSS", "Vite"],
-    link: "https://github.com/madandev02/trading-lading",
-    demo: "https://trading-lading-psi.vercel.app/",
-    image: "/images/tradepro.png",
+      "Project management backend platform with authentication, role-based access and REST API architecture designed for scalable SaaS applications.",
+    tech: ["Java", "Spring Boot", "PostgreSQL", "Docker"],
+    link: null,
+    demo: null,
+    image: null,
+    status: "In Development",
+  },
+
+  {
+    title: "Fraud Detection API",
+    description:
+      "Backend service for detecting suspicious financial transactions using rule-based logic and data processing pipelines.",
+    tech: ["Python", "FastAPI", "PostgreSQL"],
+    link: null,
+    demo: null,
+    image: null,
+    status: "Planned",
   },
 ];
 

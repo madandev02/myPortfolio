@@ -1,188 +1,169 @@
-import { useState, useEffect } from "react";
-import { FaGithub, FaFileAlt, FaEnvelope } from "react-icons/fa";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
-const availabilityMessages = [
-  "👨‍💻 Open to Full-Time Opportunities",
-  "🌍 Available for Remote & Hybrid Work",
-  "🚀 Building Scalable Full-Stack Applications",
-  "🧠 Backend-Oriented Developer (.NET / Java / Node)",
-  "🧪 Experience with QA & Automated Testing",
+import {
+  FaGithub,
+  FaEnvelope,
+  FaJava,
+  FaDocker,
+  FaReact
+} from "react-icons/fa";
+
+import {
+  SiSpringboot,
+  SiNextdotjs,
+  SiPostgresql
+} from "react-icons/si";
+
+import { HiDocumentText } from "react-icons/hi";
+
+const techStack = [
+  { name: "Java", icon: <FaJava className="text-red-400" /> },
+  { name: "Spring Boot", icon: <SiSpringboot className="text-green-400" /> },
+  { name: "React", icon: <FaReact className="text-cyan-400" /> },
+  { name: "Next.js", icon: <SiNextdotjs /> },
+  { name: "PostgreSQL", icon: <SiPostgresql className="text-blue-400" /> },
+  { name: "Docker", icon: <FaDocker className="text-blue-300" /> }
 ];
 
 const Home = () => {
-  const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentMessageIndex(
-        (prev) => (prev + 1) % availabilityMessages.length
-      );
-    }, 3500);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <motion.section
+    <section
       id="home"
-      className="relative flex flex-col items-center justify-center text-center min-h-[100vh] w-full text-[#e6edf3] overflow-hidden"
-      initial={{ opacity: 0, y: 30, scale: 0.96 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 1, ease: "easeOut" }}
+      className="relative flex flex-col items-center text-center gap-12 py-24"
     >
-      {/* 🌌 Background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,201,255,0.08)_0%,transparent_65%)] pointer-events-none"></div>
 
-      {/* 🔹 Role Badge (polivalente) */}
+      {/* Background glow */}
+
+      <div className="absolute w-[650px] h-[650px] bg-cyan-500/20 blur-[140px] rounded-full -z-10" />
+
+      {/* Badge */}
+
       <motion.div
-        className="mb-6 px-5 py-1.5 rounded-full bg-[#161b22]/70 border border-[#30363d]/60 backdrop-blur-sm text-sm tracking-wide text-[#9ba6b4]"
-        initial={{ opacity: 0, y: -15 }}
+        initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.15 }}
+        className="px-6 py-2 text-sm border border-[#30363d] rounded-full text-[#9ba6b4] backdrop-blur-md"
       >
-        FULL STACK DEVELOPER · BACKEND ORIENTED
+        FULLSTACK JAVA DEVELOPER
       </motion.div>
 
-      {/* --- Main Title --- */}
+      {/* Title */}
+
       <motion.h1
-        className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.25, duration: 0.8 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="text-5xl md:text-7xl font-bold leading-tight max-w-4xl"
       >
-        Hi, I’m{" "}
+        Building modern web applications with{" "}
         <span className="bg-gradient-to-r from-[#00c9ff] to-[#92fe9d] bg-clip-text text-transparent">
-          Mauricio Narvaez
+          Java & React
         </span>
       </motion.h1>
 
-      {/* --- Availability Badge --- */}
-      <motion.div
-        className="flex items-center gap-2 bg-[#161b22]/70 border border-[#30363d]/60 px-4 py-1 rounded-full mb-8 shadow-sm backdrop-blur-sm"
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.35, duration: 0.6 }}
-      >
-        <span className="relative flex h-3 w-3">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00ff88] opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-3 w-3 bg-[#00ff88]"></span>
-        </span>
+      {/* Subtitle */}
 
-        <div className="overflow-hidden h-5">
-          <AnimatePresence mode="wait">
-            <motion.span
-              key={availabilityMessages[currentMessageIndex]}
-              className="text-[#00ff88] text-sm font-medium block"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.4 }}
-            >
-              {availabilityMessages[currentMessageIndex]}
-            </motion.span>
-          </AnimatePresence>
+      <p className="text-lg md:text-xl text-[#9ba6b4] max-w-2xl">
+        I'm <span className="text-white font-medium">Mauricio Narvaez</span>, a
+        fullstack developer focused on building scalable backend systems with{" "}
+        <span className="text-orange-400">Spring Boot</span> and modern
+        frontends using <span className="text-cyan-400">React</span>.
+      </p>
+
+      {/* Tech stack */}
+
+      <div className="flex flex-wrap justify-center gap-4">
+
+        {techStack.map((tech) => (
+          <motion.div
+            key={tech.name}
+            whileHover={{ scale: 1.08 }}
+            className="flex items-center gap-2 px-4 py-2 bg-[#161b22]/70 border border-[#30363d] rounded-lg text-sm backdrop-blur-md hover:border-cyan-400 transition"
+          >
+            {tech.icon}
+            {tech.name}
+          </motion.div>
+        ))}
+
+      </div>
+
+      {/* Code card */}
+
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="relative mt-4"
+      >
+
+        <div className="absolute inset-0 bg-cyan-500/10 blur-2xl rounded-xl"></div>
+
+        <div className="relative bg-[#161b22]/90 border border-[#30363d] rounded-xl p-6 text-left font-mono text-sm text-[#9ba6b4] max-w-xl shadow-xl">
+
+          <span className="text-cyan-400">const</span>{" "}
+          <span className="text-white">developer</span> = {"{"}
+
+          <br />
+
+          &nbsp;&nbsp;<span className="text-purple-400">name</span>:{" "}
+          <span className="text-green-400">"Mauricio Narvaez"</span>,
+
+          <br />
+
+          &nbsp;&nbsp;<span className="text-purple-400">role</span>:{" "}
+          <span className="text-green-400">"Fullstack Java Developer"</span>,
+
+          <br />
+
+          &nbsp;&nbsp;<span className="text-purple-400">stack</span>: [
+          <span className="text-green-400">
+            "Java","Spring Boot","React","Next.js"
+          </span>
+          ],
+
+          <br />
+
+          &nbsp;&nbsp;<span className="text-purple-400">location</span>:{" "}
+          <span className="text-green-400">"Santiago, Chile"</span>
+
+          <br />
+
+          {"}"};
+
         </div>
+
       </motion.div>
 
-      {/* --- Subtitle (clave estratégica) --- */}
-      <motion.h2
-        className="text-base sm:text-lg md:text-xl text-[#9ba6b4] mb-12 max-w-2xl"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.45, duration: 0.8 }}
-      >
-        Full Stack Developer with a strong backend orientation, experienced in{" "}
-        <span className="text-[#512BD4] font-medium">.NET</span>,{" "}
-        <span className="text-[#E76F00] font-medium">Java (Spring Boot)</span> and{" "}
-        <span className="text-[#3C873A] font-medium">Node.js</span>. Skilled in
-        building REST APIs, scalable web applications, and applying QA and
-        infrastructure best practices.
-      </motion.h2>
+      {/* Buttons */}
 
-      {/* --- Developer Code Block --- */}
-      <motion.div
-        className="border border-[#21262d]/60 backdrop-blur-sm bg-[#161b22]/40 rounded-2xl p-6 text-left font-mono text-sm text-[#9ba6b4] w-full max-w-lg mb-12 shadow-[0_0_16px_#00c9ff25]"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.55, duration: 0.8 }}
-      >
-        <p className="text-[#00c9ff] mb-1">const developer = &#123;</p>
-        <div className="ml-5">
-          <p>
-            name: <span className="text-[#92fe9d]">'Mauricio Narvaez'</span>,
-          </p>
-          <p>
-            role:{" "}
-            <span className="text-[#92fe9d]">'Full Stack Developer'</span>,
-          </p>
-          <p>
-            backend:{" "}
-            <span className="text-[#92fe9d]">
-              ['.NET', 'Spring Boot', 'Node.js']
-            </span>
-            ,
-          </p>
-          <p>
-            frontend:{" "}
-            <span className="text-[#92fe9d]">
-              ['React', 'TypeScript', 'Tailwind']
-            </span>
-            ,
-          </p>
-          <p>
-            extras:{" "}
-            <span className="text-[#92fe9d]">
-              ['QA Automation', 'Docker', 'Linux']
-            </span>
-            ,
-          </p>
-          <p>
-            location:{" "}
-            <span className="text-[#92fe9d]">'Santiago, Chile'</span>,
-          </p>
-          <p>
-            mindset:{" "}
-            <span className="text-[#92fe9d]">
-              "Build reliable software and improve continuously."
-            </span>
-          </p>
-        </div>
-        <p className="text-[#00c9ff] mt-1">&#125;;</p>
-      </motion.div>
+      <div className="flex flex-wrap justify-center gap-6 pt-4">
 
-      {/* --- Call to Action --- */}
-      <motion.div
-        className="flex flex-wrap justify-center gap-4"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.75, duration: 0.8 }}
-      >
         <a
           href="https://github.com/madandev02"
           target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 px-6 py-2 rounded-full border border-[#30363d] text-[#e6edf3] hover:border-[#00c9ff] hover:text-[#00c9ff] transition-all duration-300"
+          className="flex items-center gap-2 px-6 py-3 border border-[#30363d] rounded-full hover:bg-[#161b22] hover:border-[#00c9ff] transition"
         >
-          <FaGithub className="text-lg" /> GitHub
+          <FaGithub />
+          GitHub
         </a>
 
         <a
           href="/CV_Mauricio_Narvaez.pdf"
           target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 px-6 py-2 rounded-full bg-[#00c9ff] text-[#0d1117] font-medium hover:bg-[#00b2e3] transition-all duration-300"
+          className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#00c9ff] to-[#00ffa3] text-black rounded-full font-medium hover:scale-105 transition"
         >
-          <FaFileAlt className="text-lg" /> Resume
+          <HiDocumentText />
+          Resume
         </a>
 
         <a
           href="#contact"
-          className="flex items-center gap-2 px-6 py-2 rounded-full bg-[#00ff88] text-[#0d1117] font-medium hover:bg-[#00e67a] transition-all duration-300"
+          className="flex items-center gap-2 px-6 py-3 bg-[#00ffa3] text-black rounded-full font-medium hover:scale-105 transition"
         >
-          <FaEnvelope className="text-lg" /> Contact Me
+          <FaEnvelope />
+          Contact
         </a>
-      </motion.div>
-    </motion.section>
+
+      </div>
+
+    </section>
   );
 };
 
