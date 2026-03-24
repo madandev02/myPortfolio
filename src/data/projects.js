@@ -1,12 +1,12 @@
 const projects = [
   {
-    title: "Banco Nova",
+    title: "BankNova",
     description:
       "Full Stack banking application with authentication, account management and transaction flows. Designed with a scalable backend architecture and modern frontend interface.",
     tech: ["React", "Java", "Spring Boot", "PostgreSQL", "Docker"],
-    link: "https://github.com/madandev02/banco-nova",
-    demo: "https://banco-nova.netlify.app/",
-    image: "/images/banco-nova.png",
+    link: "https://github.com/madandev02/bank-nova",
+    demo: "https://bank-nova.vercel.app/",
+    image: "/images/bank-nova.png",
   },
 
   {
