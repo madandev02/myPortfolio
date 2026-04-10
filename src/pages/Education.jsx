@@ -13,7 +13,6 @@ const Education = () => {
     >
 
       {/* background glow */}
-
       <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(0,201,255,0.06)_0%,transparent_70%)]"></div>
 
       <div className="max-w-5xl mx-auto px-6 relative z-10">
@@ -29,7 +28,7 @@ const Education = () => {
 
         <div className="relative border-l border-[#30363d] pl-12 space-y-16">
 
-          {/* DUOC */}
+          {/* UNIVERSIDAD MAYOR */}
 
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -46,17 +45,16 @@ const Education = () => {
             <div className="group bg-[#161b22]/60 backdrop-blur-xl border border-[#30363d]/80 rounded-xl p-7 transition-all duration-300 hover:border-[#00c9ff]/40 hover:shadow-[0_10px_35px_rgba(0,201,255,0.15)]">
 
               <h3 className="text-xl font-semibold mb-1">
-                Analyst Programmer
+                Software Development Technician
               </h3>
 
               <p className="text-sm text-[#9ba6b4] mb-3">
-                Duoc UC · Santiago, Chile
+                Universidad Mayor · Santiago, Chile
               </p>
 
               <p className="text-[#b9c2cf] text-sm leading-relaxed">
-                Currently pursuing a degree in programming and software development,
-                focusing on algorithms, databases, backend systems,
-                and modern web technologies.
+                Currently pursuing a technical degree focused on software development,
+                algorithms, databases, backend systems, and modern web technologies.
               </p>
 
             </div>

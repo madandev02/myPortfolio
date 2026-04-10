@@ -12,12 +12,11 @@ import {
 
 import {
   SiPostgresql,
-  SiSwagger,
   SiDocker,
   SiSpringboot,
   SiTailwindcss,
   SiVite,
-  SiNextdotjs
+  SiNextdotjs,
 } from "react-icons/si";
 
 import projects from "../data/projects";
@@ -31,48 +30,56 @@ const techIcons = {
   Nextjs: <SiNextdotjs className="text-white" />,
   Docker: <SiDocker className="text-[#0DB7ED]" />,
   "Tailwind CSS": <SiTailwindcss className="text-[#38BDF8]" />,
+  Vite: <SiVite className="text-[#646CFF]" />,
 };
 
 const containerVariants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: { staggerChildren: 0.1 }
-  }
+    transition: { staggerChildren: 0.08 },
+  },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  hidden: { opacity: 0, y: 25 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, ease: "easeOut" },
+  },
 };
 
 const ProjectCard = ({ title, description, tech, link, demo, image }) => (
   <motion.div
     variants={itemVariants}
-    whileHover={{ y: -8 }}
-    className="group relative flex flex-col w-full bg-[#161b22]/40 backdrop-blur-md border border-[#30363d] rounded-2xl overflow-hidden hover:border-[#00c9ff]/40 transition-all duration-300 shadow-xl"
+    whileHover={{ y: -6 }}
+    className="group flex flex-col w-full bg-[#161b22]/40 backdrop-blur-md border border-[#30363d] rounded-2xl overflow-hidden hover:border-[#00c9ff]/40 transition-all duration-300 shadow-xl"
   >
+    {/* IMAGE */}
     {image && (
-      <div className="w-full aspect-video overflow-hidden border-b border-[#30363d]">
+      <div className="relative w-full aspect-video overflow-hidden border-b border-[#30363d] bg-black">
         <img
           src={image}
           alt={title}
-          className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition duration-500" />
       </div>
     )}
 
     <div className="p-6 flex flex-col flex-1">
-      {/* Título de la Card con gradiente al hover */}
+      {/* TITLE */}
       <h3 className="text-2xl font-bold tracking-tight text-white mb-3 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-[#00c9ff] group-hover:to-[#92fe9d] group-hover:bg-clip-text group-hover:text-transparent">
         {title}
       </h3>
 
-      <p className="text-[#8b949e] text-sm leading-relaxed mb-6 line-clamp-3 font-sans">
+      {/* DESCRIPTION (FULL TEXT SIN CORTES) */}
+      <p className="text-[#8b949e] text-sm leading-relaxed mb-6">
         {description}
       </p>
 
-      {/* Tech badges */}
+      {/* TECH */}
       <div className="flex flex-wrap gap-2 mb-8">
         {tech.map((t, i) => (
           <span
@@ -84,19 +91,19 @@ const ProjectCard = ({ title, description, tech, link, demo, image }) => (
         ))}
       </div>
 
-      {/* Botones de acción refinados */}
-      <div className="mt-auto flex items-center justify-start gap-3">
+      {/* ACTIONS */}
+      <div className="mt-auto flex items-center gap-3">
         {link && (
           <a
             href={link}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#161b22] border border-[#30363d] text-[#8b949e] hover:text-[#00c9ff] hover:border-[#00c9ff] hover:shadow-[0_0_15px_rgba(0,201,255,0.2)] transition-all duration-300"
-            title="GitHub"
           >
             <FaGithub size={18} />
           </a>
         )}
+
         {demo && (
           <a
             href={demo}
@@ -115,15 +122,16 @@ const ProjectCard = ({ title, description, tech, link, demo, image }) => (
 const Projects = () => {
   const [showAll, setShowAll] = useState(false);
   const DEFAULT_COUNT = 3;
-  const displayedProjects = showAll ? projects : projects.slice(0, DEFAULT_COUNT);
+
+  const displayedProjects = showAll
+    ? projects
+    : projects.slice(0, DEFAULT_COUNT);
 
   return (
-    <section id="projects" className="relative w-full py-24 max-w-7xl mx-auto px-6 font-sans">
-      {/* Glow de fondo sutil */}
+    <section className="relative w-full py-24 max-w-7xl mx-auto px-6 font-sans">
       <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#00c9ff]/5 blur-[120px] rounded-full pointer-events-none -z-10" />
 
       <div className="text-center mb-16">
-        {/* Título corregido: "Projects" y fuente igual a "About Me" */}
         <h2 className="text-4xl md:text-5xl font-extrabold tracking-tighter bg-gradient-to-r from-[#00c9ff] to-[#92fe9d] bg-clip-text text-transparent mb-4">
           Projects
         </h2>
@@ -136,7 +144,7 @@ const Projects = () => {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 relative z-10"
+        className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
       >
         <AnimatePresence mode="popLayout">
           {displayedProjects.map((project, index) => (
@@ -152,9 +160,13 @@ const Projects = () => {
             className="flex items-center gap-2.5 px-8 py-3 rounded-full border border-[#30363d] text-[12px] font-bold tracking-tight text-[#8b949e] hover:border-[#00c9ff] hover:text-[#00c9ff] bg-[#0d1117] hover:shadow-[0_0_25px_rgba(0,201,255,0.2)] transition-all duration-300 active:scale-95"
           >
             {showAll ? (
-              <>Show Less <FaChevronUp size={12} /></>
+              <>
+                Show Less <FaChevronUp size={12} />
+              </>
             ) : (
-              <>Show More <FaChevronDown size={12} /></>
+              <>
+                Show More <FaChevronDown size={12} />
+              </>
             )}
           </button>
         </div>
