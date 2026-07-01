@@ -1,0 +1,59 @@
+@keyframes fade-up {
+	from {
+		opacity: 0;
+		transform: translateY(18px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+.hero-copy,
+.hero-panel,
+.featured-projects .project-card,
+.tech-stack .tech-card,
+.about .about-copy,
+.about .about-card,
+.experience .experience-card,
+.education .education-card,
+.contact .contact-copy,
+.contact .contact-card {
+	animation: fade-up .7s ease both;
+}
+
+.featured-projects .project-card:nth-child(2),
+.tech-stack .tech-card:nth-child(2),
+.experience .experience-card:nth-child(2),
+.education .education-card:nth-child(2),
+.contact .contact-card {
+	animation-delay: .08s;
+}
+
+.featured-projects .project-card:nth-child(3),
+.tech-stack .tech-card:nth-child(3),
+.education .education-card:nth-child(3) {
+	animation-delay: .16s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: .01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: .01ms !important;
+		scroll-behavior: auto !important;
+	}
+}

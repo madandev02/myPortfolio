@@ -1,0 +1,46 @@
+.about-grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+	gap: 1.5rem;
+	align-items: start;
+}
+
+.about .section-title {
+	max-width: 46rem;
+}
+
+.about-copy {
+	display: grid;
+	gap: 1rem;
+	padding: 1.4rem;
+	border-radius: 26px;
+	border: 1px solid rgba(148, 163, 184, .12);
+	background: rgba(15, 23, 42, .55);
+}
+
+.about-copy p {
+	font-size: 1.02rem;
+}
+
+.about-principles {
+	display: grid;
+	gap: 1rem;
+}
+
+.about-card {
+	padding: 1.25rem 1.3rem;
+	border-radius: 22px;
+	border: 1px solid rgba(148, 163, 184, .12);
+	background: linear-gradient(180deg, rgba(15, 23, 42, .68), rgba(10, 15, 28, .82));
+}
+
+.about-card h3 {
+	margin-bottom: .55rem;
+	font-size: 1.08rem;
+}
+
+@media (max-width: 900px) {
+	.about-grid {
+		grid-template-columns: 1fr;
+	}
+}

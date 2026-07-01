@@ -1,0 +1,19 @@
+.featured-projects__intro {
+	max-width: 46rem;
+	margin-bottom: 1.75rem;
+	font-size: 1.03rem;
+	color: var(--color-text-secondary);
+}
+
+.projects-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1.25rem;
+	align-items: stretch;
+}
+
+@media (max-width: 1100px) {
+	.projects-grid {
+		grid-template-columns: 1fr;
+	}
+}

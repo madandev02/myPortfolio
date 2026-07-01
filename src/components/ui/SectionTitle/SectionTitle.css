@@ -1,0 +1,32 @@
+.section-title {
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+
+  margin-bottom: 2rem;
+  max-width: 42rem;
+}
+
+.section-subtitle {
+  color: var(--color-primary);
+
+  font-size: var(--text-sm);
+
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  letter-spacing: .12rem;
+}
+
+.section-heading {
+  color: var(--color-text);
+
+  font-size: clamp(2.1rem, 5vw, 3.25rem);
+
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  letter-spacing: -0.05em;
+}

@@ -1,0 +1,207 @@
+/* ==========================================================
+   RESET
+========================================================== */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ==========================================================
+   HTML
+========================================================== */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 110px;
+}
+
+/* ==========================================================
+   BODY
+========================================================== */
+
+body {
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(56, 189, 248, .12),
+      transparent 32%
+    ),
+    radial-gradient(circle at 20% 20%, rgba(125, 211, 252, .08), transparent 24%),
+    var(--color-background);
+
+  color: var(--color-text);
+
+  font-family: var(--font-primary);
+
+  line-height: 1.6;
+
+  text-rendering: optimizeLegibility;
+
+  -webkit-font-smoothing: antialiased;
+
+  overflow-x: hidden;
+
+  color-scheme: dark;
+}
+
+/* ==========================================================
+   ROOT
+========================================================== */
+
+#root {
+  min-height: 100vh;
+}
+
+/* ==========================================================
+   TYPOGRAPHY
+========================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  color: var(--color-text);
+}
+
+p {
+  color: var(--color-text-secondary);
+}
+
+span {
+  color: inherit;
+}
+
+/* ==========================================================
+   LINKS
+========================================================== */
+
+a {
+  color: inherit;
+
+  text-decoration: none;
+
+  transition: var(--transition-fast);
+}
+
+/* ==========================================================
+   LISTS
+========================================================== */
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* ==========================================================
+   IMAGES
+========================================================== */
+
+img,
+picture {
+  display: block;
+
+  max-width: 100%;
+}
+
+/* ==========================================================
+   BUTTONS
+========================================================== */
+
+button {
+  font: inherit;
+
+  cursor: pointer;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+}
+
+/* ==========================================================
+   INPUTS
+========================================================== */
+
+input,
+textarea {
+  font: inherit;
+
+  border: none;
+
+  outline: none;
+}
+
+/* ==========================================================
+   SELECTION
+========================================================== */
+
+::selection {
+  background: var(--color-primary);
+
+  color: white;
+}
+
+/* ==========================================================
+   SCROLLBAR
+========================================================== */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+
+  border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* ==========================================================
+   CONTAINER
+========================================================== */
+
+.container {
+  width: min(1200px, calc(100% - 2rem));
+
+  margin-inline: auto;
+}
+
+/* ==========================================================
+   SECTION
+========================================================== */
+
+.section {
+  padding: 5.5rem 0;
+}
+
+/* ==========================================================
+   UTILITIES
+========================================================== */
+
+.text-center {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
