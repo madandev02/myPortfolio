@@ -11,8 +11,8 @@ function Navbar() {
 
         <nav className="navbar-content">
 
-          <a href="#top" className="logo" aria-label="Mauricio Narváez home">
-            Mauricio Narváez
+          <a href="#top" className="logo" aria-label="Mauricio Narvaez home">
+            Mauricio Narvaez
           </a>
 
           <ul className="nav-links">

@@ -18,7 +18,7 @@ function Hero() {
             </h1>
 
             <p className="hero-description">
-              Mauricio Narvaez. I build practical web applications for logistics,
+              I am Mauricio Narvaez. I build practical web applications for logistics,
               maintenance and clinic workflows with a product mindset and clean
               engineering habits.
             </p>
